@@ -41,7 +41,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-/* Typographic scale */
 h1 {
   font-size: clamp(28px, 3vw, 42px);
   line-height: 1.2;
@@ -64,8 +63,6 @@ p {
   color: var(--muted);
   margin: 0 0 var(--space-4);
 }
-
-/* Header / Nav */
 header {
   border-bottom: 1px solid var(--glacier);
   padding: var(--space-3) 0;
@@ -100,8 +97,6 @@ nav a:hover {
 nav a:focus-visible {
   outline: 2px solid var(--summit-blue);
 }
-
-/* Hero */
 .hero {
   height: 520px;
   display: flex;
@@ -147,19 +142,15 @@ nav a:focus-visible {
   color: #fff;
   border: 1px solid #fff;
 }
-
-/* Sections – normalized rhythm */
 .section {
-  padding: var(--space-7) 0;
+  padding: var(--space-8) 0;
   border-top: 1px solid var(--glacier);
-} /* tightened from space-8 */
+}
 .container {
   max-width: var(--container);
   margin: 0 auto;
   padding: 0 var(--space-5);
 }
-
-/* Badge spacing: consistent offset above, uniform gap to grid */
 .badge {
   display: inline-block;
   background: #eef6ff;
@@ -170,33 +161,6 @@ nav a:focus-visible {
   font-weight: 700;
   letter-spacing: 0.02em;
 }
-.section > .container > .badge {
-  margin-top: var(--space-2);
-  margin-bottom: var(--space-3);
-} /* <-- canonical gap */
-
-/* Remove ad-hoc inline margins after badges (if any) */
-.section .container .badge + .grid,
-.section .container .badge + div {
-  margin-top: 0 !important;
-}
-
-/* Kill any empty spacer immediately after a section badge */
-.section .container > .badge + div:empty {
-  display: none !important;
-  height: 0 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-/* Force consistent spacing between section badge and the grid/cards beneath it */
-.section .container > .badge + .grid,
-.section .container > .badge + .card,
-.section .container > .badge + div {
-  margin-top: var(--space-3) !important; /* Consistent badge → content gap */
-}
-
-/* Grid + cards */
 .grid {
   display: grid;
   gap: var(--space-5);
@@ -213,42 +177,38 @@ nav a:focus-visible {
   border-radius: var(--radius);
   padding: var(--space-5);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
-  margin: 0;
 }
 .card:hover {
   box-shadow: 0 6px 22px rgba(0, 0, 0, 0.06);
 }
-.card p:last-child {
-  margin-bottom: 0;
+.card p {
+  margin: 0;
+  color: var(--muted);
 }
-
-/* Slightly tighter section bottoms when a grid is present */
-/* Class-free approach: most sections contain a grid; keep bottom visually tighter */
-.section {
-  padding-bottom: calc(var(--space-7) - var(--space-2));
+.outcomes-img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--glacier);
+  box-shadow: var(--shadow);
 }
-
-/* Outcomes icons */
+/* Outcomes card icons */
 .outcomes-card {
-  text-align: left;
+  text-align: left;            /* or center if you prefer */
 }
 .outcome-icon {
   width: 56px;
   height: 56px;
   display: block;
-  margin: 0 0 12px 0;
+  margin: 0 0 12px 0;          /* space above headings */
   border-radius: 50%;
 }
-
-/* Case thumbnails */
 .case-card img {
   width: 100%;
   height: 160px;
   object-fit: cover;
   border-radius: 10px;
 }
-
-/* CTA banner */
 .cta-banner {
   background: linear-gradient(90deg, #0b1220, #163a5f);
   color: #fff;
@@ -269,8 +229,6 @@ nav a:focus-visible {
   border-radius: 8px;
   font-weight: 800;
 }
-
-/* Footer */
 footer {
   background: #0f172a;
   color: #fff;
@@ -290,8 +248,6 @@ footer {
 .footer-logo {
   height: 80px;
 }
-
-/* Calendly */
 .booking-container {
   max-width: 900px;
   margin: 0 auto;
@@ -304,8 +260,6 @@ footer {
   border-radius: var(--radius);
   box-shadow: var(--shadow);
 }
-
-/* Responsive */
 @media (max-width: 1024px) {
   .grid.cols-4 {
     grid-template-columns: repeat(2, 1fr);
