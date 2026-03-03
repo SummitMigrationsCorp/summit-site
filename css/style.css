@@ -267,6 +267,15 @@ nav a:focus-visible {
   border-radius: 50%;
 }
 
+/* Why Summit icons */
+.why-icon {
+  width: 56px;
+  height: 56px;
+  display: block;
+  margin: 0 0 12px 0;  /* space above H3 */
+  border-radius: 50%;
+}
+
 /* Case thumbnails */
 .case-card img {
   width: 100%;
