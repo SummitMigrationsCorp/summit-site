@@ -64,7 +64,16 @@ p {
   color: var(--muted);
   margin: 0 0 var(--space-4);
 }
-
+header {
+  height: 120px; /* fixed container height */
+  display: flex;
+  align-items: center; /* vertical centering */
+}
+.header-inner {
+  height: 100%; /* fill header height */
+  display: flex;
+  align-items: center;
+}
 /* Header / Nav */
 header {
   border-bottom: 1px solid var(--glacier);
@@ -82,8 +91,13 @@ header {
   margin: 0 auto;
   padding: 0 var(--space-5);
 }
+
+.section:first-of-type {
+  padding-top: var(--space-7); /* consistent, predictable */
+}
+
 .logo {
-  height: 72px;
+  height: 96px;
 }
 nav a {
   color: var(--text);
@@ -206,6 +220,19 @@ nav a:focus-visible {
 }
 .grid.cols-4 {
   grid-template-columns: repeat(4, 1fr);
+}
+.grid.cols-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+.service-icon {
+  width: 56px;
+  height: 56px;
+  display: block;
+  margin: 0 0 12px 0;
+  border-radius: 50%;
+}
+.grid.cols-5 {
+  grid-template-columns: repeat(5, 1fr);
 }
 .card {
   background: #fff;
