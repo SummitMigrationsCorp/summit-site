@@ -231,9 +231,6 @@ nav a:focus-visible {
   margin: 0 0 12px 0;
   border-radius: 50%;
 }
-.grid.cols-5 {
-  grid-template-columns: repeat(5, 1fr);
-}
 .card {
   background: #fff;
   border: 1px solid var(--glacier);
@@ -361,4 +358,11 @@ footer {
     height: auto;
     min-height: 640px;
   }
+}
+/* Hide any empty element dropped right after a badge */
+.section .container > .badge + div:empty {
+  display: none !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
