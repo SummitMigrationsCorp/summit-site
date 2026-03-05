@@ -366,3 +366,37 @@ footer {
   margin: 0 !important;
   padding: 0 !important;
 }
+/* --- Shared buttons (site-wide) --- */
+.btn {
+  display: inline-block;
+  padding: 12px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* Primary button (matches your brand CTA) */
+.btn-primary {
+  background: var(--summit-blue);
+  color: #fff;
+  box-shadow: var(--shadow);
+}
+.btn-primary:hover { filter: brightness(1.05); }
+
+/* Secondary button (neutral, outlined) */
+.btn-secondary {
+  background: #fff;
+  color: var(--ink);
+  border: 1px solid var(--glacier);
+}
+.btn-secondary:hover { background: #F2F8FF; color: #0B5CAB; }
+
+/* Horizontal row for CTAs */
+.cta-row-inline {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 16px;
+}
