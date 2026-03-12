@@ -311,6 +311,26 @@ nav a:focus-visible {
   background: #fff;
 }
 
+/* Prevent default purple visited link color on card anchors */
+a.card:visited,
+a.card:visited h3,
+a.card:visited p {
+  color: inherit;
+}
+
+/* Hover effect for all linked cards — homepage and case studies index */
+a.card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+a.card:hover {
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.10);
+  transform: translateY(-2px);
+}
+
 /* Clickable case study cards */
 .case-card-link {
   text-decoration: none;
@@ -318,6 +338,9 @@ nav a:focus-visible {
   display: block;
   cursor: pointer;
   transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+.case-card-link:visited {
+  color: inherit;
 }
 .case-card-link:hover {
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.10);
