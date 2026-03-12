@@ -128,6 +128,7 @@ nav a:focus-visible {
   position: absolute;
   inset: 0;
   background: linear-gradient(90deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  pointer-events: none;
 }
 .hero-inner {
   position: relative;
@@ -301,6 +302,18 @@ nav a:focus-visible {
   padding: 12px 18px;
   border-radius: 8px;
   font-weight: 800;
+}
+
+/* Breadcrumb navigation links */
+.breadcrumb a {
+  color: inherit;
+  text-decoration: none;
+}
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+.breadcrumb a:visited {
+  color: inherit;
 }
 
 /* Tinted section background for visual separation */
