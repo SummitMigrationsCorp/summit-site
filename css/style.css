@@ -303,6 +303,30 @@ nav a:focus-visible {
   font-weight: 800;
 }
 
+/* Tinted section background for visual separation */
+.section-tinted {
+  background: var(--soft);
+}
+.section-tinted .card {
+  background: #fff;
+}
+
+/* Clickable case study cards */
+.case-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  cursor: pointer;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+.case-card-link:hover {
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.10);
+  transform: translateY(-2px);
+}
+.case-card-link h3 {
+  color: var(--text);
+}
+
 /* Footer */
 footer {
   background: #0f172a;
