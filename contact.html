@@ -1,100 +1,141 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Contact – Summit</title>
-    <!-- Canonical -->
-    <link rel="canonical" href="https://www.summitmigrations.com/" />
-
-    <!-- Favicons -->
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/assets/icons/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="/assets/icons/favicon-16x16.png"
-    />
-    <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png" />
-    <link
-      rel="mask-icon"
-      href="/assets/icons/safari-pinned-tab.svg"
-      color="#0F172A"
-    />
-    <link rel="manifest" href="/assets/icons/site.webmanifest" />
-    <meta name="theme-color" content="#0F172A" />
-
-    <!-- Primary Meta -->
-    <meta
-      name="title"
-      content="Summit Migrations – Enterprise‑grade Microsoft 365 Migrations"
-    />
-    <meta
-      name="description"
-      content="Your Migration. Done Right. The First Time. We guide organizations through Microsoft 365 migrations with expert precision—on time, on budget, and without disruption."
-    />
-
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.summitmigrations.com/" />
-    <meta
-      property="og:title"
-      content="Summit Migrations – Enterprise‑grade Microsoft 365 Migrations"
-    />
-    <meta
-      property="og:description"
-      content="Your Migration. Done Right. The First Time."
-    />
-    <meta property="og:image" content="/assets/images/og-home.jpg" />
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Summit Migrations – Enterprise‑grade Microsoft 365 Migrations"
-    />
-    <meta
-      name="twitter:description"
-      content="Your Migration. Done Right. The First Time."
-    />
-    <meta name="twitter:image" content="/assets/images/og-home.jpg" />
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <header>
-      <div class="header-inner">
-        <a href="index.html"
-          ><img
-            src="assets/logo/Summit_Primary_1500.png"
-            class="logo"
-            alt="Summit Migrations logo"
-        /></a>
-        <nav>
-          <a href="index.html">Home</a><a href="services.html">Services</a
-          ><a href="why-summit.html">Why Summit</a
-          ><a href="case-studies.html">Case Studies</a
-          ><a href="book.html">Book</a><a href="contact.html">Contact</a>
-        </nav>
-      </div>
-    </header>
-    <div class="container section">
-      <h1>Contact – Summit</h1>
-      <p>Contact form placeholder.</p>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Contact – Summit</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <style>
+    .contact-hero{padding:32px 0;border-top:1px solid var(--glacier)}
+    .contact-grid{display:grid;grid-template-columns:2fr 1fr;gap:24px}
+    .contact-card{background:#fff;border:1px solid var(--glacier);border-radius:var(--radius);padding:var(--space-5);box-shadow:0 2px 10px rgba(0,0,0,.03)}
+    form .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    form .row + .row{margin-top:12px}
+    label{font-weight:600;display:block;margin-bottom:6px}
+    input, select, textarea{width:100%;padding:12px;border:1px solid var(--glacier);border-radius:8px;font:inherit}
+    textarea{min-height:140px}
+    .form-actions{margin-top:16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+    .btn{display:inline-block;padding:12px 16px;border-radius:8px;text-decoration:none;font-weight:700;line-height:1}
+    .btn-primary{background:var(--summit-blue);color:#fff;box-shadow:var(--shadow)}
+    .btn-primary:hover{filter:brightness(1.05)}
+    .btn-secondary{background:#fff;color:var(--ink);border:1px solid var(--glacier)}
+    .btn-secondary:hover{background:#F2F8FF;color:#0B5CAB}
+    .note{font-size:14px;color:#64748B}
+    @media(max-width:900px){.contact-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="index.html"><img src="assets/logo/Summit_Primary_1500.png" class="logo" alt="Summit Migrations logo"></a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="why-summit.html">Why Summit</a>
+        <a href="case-studies.html">Case Studies</a>
+        <a href="book.html">Book</a>
+        <a href="contact.html">Contact</a>
+      </nav>
     </div>
-    <footer>
-      <div class="footer-inner">
-        <img
-          src="assets/logo/Summit_White_Transparent_1500.png"
-          class="footer-logo"
-          alt="Summit Migrations white logo"
-        />
-        <div>© 2026 Summit Migrations Corp.</div>
+  </header>
+
+  <main>
+    <section class="contact-hero">
+      <div class="container">
+        <div class="breadcrumb">Home / Contact</div>
+        <h1>Contact Summit</h1>
+        <p class="section-lead">Tell us a little about your environment and what you’re trying to accomplish. We’ll respond within one business day.</p>
       </div>
-    </footer>
-  </body>
+    </section>
+
+    <section class="section">
+      <div class="container contact-grid">
+
+        <div class="contact-card">
+          <h2>Send a Message</h2>
+          <!-- Formspree wiring -->
+          <form action="https://formspree.io/f/mkoqwovj" method="POST">
+            <input type="hidden" name="_subject" value="New message from Summit website">
+            <input type="hidden" name="_redirect" value="https://www.summitmigrations.com/contact.html?sent=1">
+
+            <div class="row">
+              <div>
+                <label for="name">Full name</label>
+                <input type="text" id="name" name="name" required autocomplete="name"/>
+              </div>
+              <div>
+                <label for="email">Work email</label>
+                <input type="email" id="email" name="email" required autocomplete="email"/>
+              </div>
+            </div>
+            <div class="row">
+              <div>
+                <label for="company">Company</label>
+                <input type="text" id="company" name="company" autocomplete="organization"/>
+              </div>
+              <div>
+                <label for="phone">Phone (optional)</label>
+                <input type="tel" id="phone" name="phone" autocomplete="tel"/>
+              </div>
+            </div>
+            <div class="row">
+              <div>
+                <label for="interest">I’m interested in</label>
+                <select id="interest" name="interest" required>
+                  <option value="" selected disabled>Select an option</option>
+                  <option>M365 Tenant Setup</option>
+                  <option>Tenant‑to‑Tenant</option>
+                  <option>Cloud → M365</option>
+                  <option>File Shares → M365</option>
+                  <option>Email Migrations</option>
+                  <option>Migration Rescue</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div>
+                <label for="timeline">Target timeline</label>
+                <select id="timeline" name="timeline">
+                  <option value="">Not sure</option>
+                  <option>0–30 days</option>
+                  <option>30–90 days</option>
+                  <option>90+ days</option>
+                </select>
+              </div>
+            </div>
+            <div class="row" style="grid-template-columns:1fr;">
+              <div>
+                <label for="message">Project details</label>
+                <textarea id="message" name="message" required placeholder="Briefly describe your current environment, volumes, and goals."></textarea>
+              </div>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Send Message</button>
+              <span class="note">Prefer email? <a href="mailto:jim@summitmigrations.com">Email us</a></span>
+            </div>
+          </form>
+        </div>
+
+        <aside class="contact-card">
+          <h2>Prefer to schedule?</h2>
+          <p>Pick a time that works best for you. We’ll review your environment and outline a predictable, business‑safe plan.</p>
+          <div class="cta-row-inline" style="margin-top:12px;">
+            <a href="https://calendly.com/summitmigrations/30min?hide_event_type_details=1&hide_gdpr_banner=1" target="_blank" rel="noopener" class="btn btn-secondary">Open Scheduling in a New Tab</a>
+          </div>
+          <hr style="margin:24px 0;border:0;border-top:1px solid var(--glacier)"/>
+          <h3>Other ways to reach us</h3>
+          <p class="note">General inbox: <a href="mailto:jim@summitmigrations.com">jim@summitmigrations.com</a><br/>
+          Website: <a href="https://www.summitmigrations.com/" target="_blank" rel="noopener">https://www.summitmigrations.com/</a></p>
+        </aside>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <img src="assets/logo/Summit_White_Transparent_1500.png" class="footer-logo" alt="Summit Migrations white logo"/>
+      <div>© 2026 Summit Migrations Corp.</div>
+    </div>
+  </footer>
+</body>
 </html>
