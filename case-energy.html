@@ -1,49 +1,147 @@
 <!doctype html>
-<html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1'>
-<title>Energy Sector – Case Study</title>
-<link rel='stylesheet' href='css/style.css'></head>
-<body><header><div class='header-inner'><a href='index.html'><img src='assets/logo/Summit_Primary_1500.png' class='logo'></a>
-<nav><a href='index.html'>Home</a><a href='services.html'>Services</a><a href='why-summit.html'>Why Summit</a><a href='case-studies.html'>Case Studies</a><a href='book.html'>Book</a><a href='contact.html'>Contact</a></nav></div></header>
+<html lang='en'>
+<head>
+<meta charset='utf-8'/>
+<meta name='viewport' content='width=device-width, initial-scale=1'/>
+<title>Case Study – Energy Sector</title>
+<link rel='stylesheet' href='css/style.css'/>
+<style>
+.case-hero {
+  padding: 56px 0;
+  background: linear-gradient(135deg, #0f172a, #1e4a7a);
+  color: #fff;
+}
+.case-hero .breadcrumb {
+  font-size: 14px;
+  color: #94a3b8;
+  margin-bottom: 12px;
+}
+.case-hero .breadcrumb a {
+  color: #94a3b8;
+  text-decoration: none;
+}
+.case-hero .breadcrumb a:hover { color: #fff; }
+.case-hero h1 { color: #fff; margin-bottom: 12px; }
+.case-hero .section-lead { color: #cbd5e1; max-width: 820px; margin-bottom: 0; }
+.metric-bar { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 28px; }
+.metric-tile {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.18);
+  padding: 16px 22px;
+  border-radius: 12px;
+  color: #fff;
+  min-width: 110px;
+}
+.metric-tile strong { display: block; font-size: 22px; color: #fff; margin-bottom: 2px; }
+.metric-tile span { font-size: 13px; color: #cbd5e1; }
+.section-block { padding: 40px 0; border-top: 1px solid var(--glacier); }
+.spotlight {
+  background: #F8FAFF;
+  border-left: 4px solid var(--summit-blue);
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.05);
+}
+</style>
+</head>
+<body>
+<header>
+  <div class='header-inner'>
+    <a href='index.html'><img src='assets/logo/Summit_Primary_1500.png' class='logo' alt='Summit Migrations logo'></a>
+    <nav>
+      <a href='index.html'>Home</a>
+      <a href='services.html'>Services</a>
+      <a href='why-summit.html'>Why Summit</a>
+      <a href='case-studies.html'>Case Studies</a>
+      <a href='book.html'>Book</a>
+      <a href='contact.html'>Contact</a>
+    </nav>
+  </div>
+</header>
+
 <main>
-<section class='section'><div class='container'>
-<span class='badge'>Case Study</span>
-<h1>Energy Sector</h1>
-<p class='section-lead'>Enterprise-Scale On-Prem to OneDrive Migration completed for one of America's largest energy companies.</p>
-<div class='grid cols-4' style='margin-top:24px;'>
-<div class='card'><strong>45,000</strong><br/>Users Migrated</div>
-<div class='card'><strong>120 TB</strong><br/>Data Transferred</div>
-<div class='card'><strong>9 Months</strong><br/>Engagement</div>
-<div class='card'><strong>0</strong><br/>Data Loss / Disruptions</div>
-</div></div></section>
-<section class='section'><div class='container'>
-<h2>Overview</h2>
-<p>Summit executed one of the largest and most compliance-sensitive OneDrive migrations on record — retiring decades-old home directories inside a nuclear-regulated Fortune 100 environment without disrupting operations.</p>
-</div></section>
-<section class='section'><div class='container'>
-<h2>Challenges</h2>
-<ul><li>Strict MNPI compliance in a regulated utility environment.</li>
-<li>Decades of legacy permissions requiring cleanup.</li>
-<li>Multi-domain identity complexity.</li>
-<li>Risk of network throttling requiring after-hours execution.</li>
-<li>Edge-case file types needing specialized handling.</li></ul>
-</div></section>
-<section class='section'><div class='container'>
-<h2>Our Approach</h2>
-<ul><li>Dual-platform migration architecture (SkySync + Migration Manager).</li>
-<li>Nightly after-hours waves with strict bandwidth controls.</li>
-<li>Scripted OneDrive provisioning and temporary admin access.</li>
-<li>Morning validation and immediate remediation.</li></ul>
-</div></section>
-<section class='section'><div class='container'>
-<h2>Results</h2>
-<ul><li>45,000 users migrated with zero data loss.</li>
-<li>120 TB transferred across nine months.</li>
-<li>No business disruption across nuclear-regulated operations.</li>
-<li>Legacy NetApp infrastructure fully retired.</li></ul>
-<div class='cta-row-inline'>
-<a href='case-energy-full.html' class='btn btn-secondary'>Read Full Case Study →</a>
-<a href='book.html' class='btn btn-primary'>Book a Consultation</a></div>
-</div></section>
+  <section class='case-hero'>
+    <div class='container'>
+      <div class='breadcrumb'><a href='index.html'>Home</a> / <a href='case-studies.html'>Case Studies</a> / Energy Sector</div>
+      <h1>Exelon – Large-Scale OneDrive Migration</h1>
+      <p class='section-lead'>A 45,000-user, 120TB file migration executed inside Exelon's nuclear-regulated Fortune 100 environment, completed with zero data loss and no disruption to operations.</p>
+      <div class='metric-bar'>
+        <div class='metric-tile'><strong>45,000</strong><span>Users Migrated</span></div>
+        <div class='metric-tile'><strong>120 TB</strong><span>Data Transferred</span></div>
+        <div class='metric-tile'><strong>9 Months</strong><span>Engagement</span></div>
+        <div class='metric-tile'><strong>0</strong><span>Data Loss</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class='section-block'>
+    <div class='container'>
+      <h2>Overview</h2>
+      <p>Summit executed one of the largest and most compliance-sensitive OneDrive migrations on record, retiring decades-old home directories across Exelon's nuclear-regulated Fortune 100 environment without disrupting operations.</p>
+    </div>
+  </section>
+
+  <section class='section-block'>
+    <div class='container'>
+      <h2>Challenges</h2>
+      <ul>
+        <li>Strict MNPI compliance in a regulated utility environment</li>
+        <li>Decades of legacy permissions requiring cleanup</li>
+        <li>Multi-domain identity complexity</li>
+        <li>Risk of network throttling requiring after-hours execution</li>
+        <li>Edge-case file types needing specialized handling</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class='section-block'>
+    <div class='container'>
+      <h2>Spotlight: Dual-Platform Architecture</h2>
+      <div class='spotlight'>
+        <p>Summit deployed SkySync and Microsoft Migration Manager in parallel, enabling greater throughput, redundancy, and advanced handling of file types that no single platform could manage alone. All migrations ran after hours with progressive bandwidth tuning to protect business operations.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class='section-block'>
+    <div class='container'>
+      <h2>Our Approach</h2>
+      <ul>
+        <li>Dual-platform migration architecture using SkySync and Migration Manager</li>
+        <li>Nightly after-hours waves with strict bandwidth controls</li>
+        <li>Scripted OneDrive provisioning and temporary admin access management</li>
+        <li>Morning validation and immediate remediation before business hours</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class='section-block'>
+    <div class='container'>
+      <h2>Results</h2>
+      <ul>
+        <li>45,000 users migrated with zero data loss</li>
+        <li>120 TB transferred across nine months</li>
+        <li>No business disruption across nuclear-regulated operations</li>
+        <li>Legacy NetApp infrastructure fully retired</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class='section-block'>
+    <div class='container'>
+      <div class='cta-row-inline'>
+        <a href='case-energy-full.html' class='btn btn-secondary'>Read the full case study →</a>
+        <a href='book.html' class='btn btn-primary'>Book a Consultation</a>
+      </div>
+    </div>
+  </section>
 </main>
-<footer><div class='footer-inner'><img src='assets/logo/Summit_White_Transparent_1500.png' class='footer-logo'><div>© 2026 Summit Migrations Corp.</div></div></footer>
-</body></html>
+
+<footer>
+  <div class='footer-inner'>
+    <img src='assets/logo/Summit_White_Transparent_1500.png' class='footer-logo' alt='Summit Migrations white logo'/>
+    <div>© 2026 Summit Migrations Corp.</div>
+  </div>
+</footer>
+</body>
+</html>
