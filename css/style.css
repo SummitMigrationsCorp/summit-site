@@ -24,6 +24,8 @@
 }
 html {
   scroll-behavior: smooth;
+  overflow-y: scroll;          /* forces scrollbar track on all pages */
+  scrollbar-gutter: stable;    /* reserves gutter space — prevents nav shift between pages */
 }
 body {
   font-family:
@@ -64,20 +66,12 @@ p {
   color: var(--muted);
   margin: 0 0 var(--space-4);
 }
+/* Header / Nav — single consolidated rule */
 header {
-  height: 120px; /* fixed container height */
-  display: flex;
-  align-items: center; /* vertical centering */
-}
-.header-inner {
-  height: 100%; /* fill header height */
+  height: 120px;
   display: flex;
   align-items: center;
-}
-/* Header / Nav */
-header {
   border-bottom: 1px solid var(--glacier);
-  padding: var(--space-3) 0;
   background: #fff;
   position: sticky;
   top: 0;
@@ -87,6 +81,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
   max-width: var(--container);
   margin: 0 auto;
   padding: 0 var(--space-5);
