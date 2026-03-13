@@ -3,25 +3,41 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Contact – Summit</title>
+  <title>Contact – Summit Migrations</title>
   <link rel="stylesheet" href="css/style.css"/>
   <style>
-    .contact-hero{padding:32px 0;border-top:1px solid var(--glacier)}
-    .contact-grid{display:grid;grid-template-columns:2fr 1fr;gap:24px}
-    .contact-card{background:#fff;border:1px solid var(--glacier);border-radius:var(--radius);padding:var(--space-5);box-shadow:0 2px 10px rgba(0,0,0,.03)}
-    form .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    form .row + .row{margin-top:12px}
-    label{font-weight:600;display:block;margin-bottom:6px}
-    input, select, textarea{width:100%;padding:12px;border:1px solid var(--glacier);border-radius:8px;font:inherit}
-    textarea{min-height:140px}
-    .form-actions{margin-top:16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
-    .btn{display:inline-block;padding:12px 16px;border-radius:8px;text-decoration:none;font-weight:700;line-height:1}
-    .btn-primary{background:var(--summit-blue);color:#fff;box-shadow:var(--shadow)}
-    .btn-primary:hover{filter:brightness(1.05)}
-    .btn-secondary{background:#fff;color:var(--ink);border:1px solid var(--glacier)}
-    .btn-secondary:hover{background:#F2F8FF;color:#0B5CAB}
-    .note{font-size:14px;color:#64748B}
-    @media(max-width:900px){.contact-grid{grid-template-columns:1fr}}
+    .contact-hero {
+      padding: 56px 0;
+      background: linear-gradient(135deg, #0f172a, #1e4a7a);
+      color: #fff;
+    }
+    .contact-hero .breadcrumb {
+      font-size: 14px;
+      color: #94a3b8;
+      margin-bottom: 12px;
+    }
+    .contact-hero .breadcrumb a {
+      color: #94a3b8;
+      text-decoration: none;
+    }
+    .contact-hero .breadcrumb a:hover { color: #fff; }
+    .contact-hero h1 { color: #fff; margin-bottom: 12px; }
+    .contact-hero .section-lead { color: #cbd5e1; max-width: 680px; margin-bottom: 0; font-size: 18px; line-height: 1.65; }
+    .contact-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; }
+    .contact-card { background: #fff; border: 1px solid var(--glacier); border-radius: var(--radius); padding: var(--space-5); box-shadow: 0 2px 10px rgba(0,0,0,.03); }
+    form .row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    form .row + .row { margin-top: 12px; }
+    label { font-weight: 600; display: block; margin-bottom: 6px; }
+    input, select, textarea { width: 100%; padding: 12px; border: 1px solid var(--glacier); border-radius: 8px; font: inherit; }
+    textarea { min-height: 140px; }
+    .form-actions { margin-top: 16px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+    .btn { display: inline-block; padding: 12px 16px; border-radius: 8px; text-decoration: none; font-weight: 700; line-height: 1; }
+    .btn-primary { background: var(--summit-blue); color: #fff; box-shadow: var(--shadow); }
+    .btn-primary:hover { filter: brightness(1.05); }
+    .btn-secondary { background: #fff; color: var(--ink); border: 1px solid var(--glacier); }
+    .btn-secondary:hover { background: #F2F8FF; color: #0B5CAB; }
+    .note { font-size: 14px; color: #64748B; }
+    @media(max-width:900px) { .contact-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -33,7 +49,7 @@
         <a href="services.html">Services</a>
         <a href="why-summit.html">Why Summit</a>
         <a href="case-studies.html">Case Studies</a>
-        <a href="book.html">Book</a>
+        <a href="book.html">Schedule</a>
         <a href="contact.html">Contact</a>
       </nav>
     </div>
@@ -43,8 +59,8 @@
     <section class="contact-hero">
       <div class="container">
         <div class="breadcrumb"><a href="index.html">Home</a> / Contact</div>
-        <h1>Contact Summit</h1>
-        <p class="section-lead">Tell us a little about your environment and what you’re trying to accomplish. We’ll respond within one business day.</p>
+        <h1>Let's Talk About Your Migration</h1>
+        <p class="section-lead">Every migration is different. Tell us about your environment and what you're trying to accomplish. We'll get back to you within one business day with a direct, honest response.</p>
       </div>
     </section>
 
@@ -53,7 +69,6 @@
 
         <div class="contact-card">
           <h2>Send a Message</h2>
-          <!-- Formspree wiring -->
           <form action="https://formspree.io/f/mkoqwovj" method="POST">
             <input type="hidden" name="_subject" value="New message from Summit website">
             <input type="hidden" name="_redirect" value="https://www.summitmigrations.com/contact.html?sent=1">
@@ -80,13 +95,13 @@
             </div>
             <div class="row">
               <div>
-                <label for="interest">I’m interested in</label>
+                <label for="interest">I'm interested in</label>
                 <select id="interest" name="interest" required>
                   <option value="" selected disabled>Select an option</option>
                   <option>M365 Tenant Setup</option>
-                  <option>Tenant‑to‑Tenant</option>
-                  <option>Cloud → M365</option>
-                  <option>File Shares → M365</option>
+                  <option>Tenant&#8209;to&#8209;Tenant</option>
+                  <option>Cloud &#8594; M365</option>
+                  <option>File Shares &#8594; M365</option>
                   <option>Email Migrations</option>
                   <option>Migration Rescue</option>
                   <option>Other</option>
@@ -110,21 +125,20 @@
             </div>
             <div class="form-actions">
               <button type="submit" class="btn btn-primary">Send Message</button>
-              <span class="note">Prefer email? <a href="mailto:jim@summitmigrations.com">Email us</a></span>
+              <span class="note">Prefer email? <a href="mailto:jim@summitmigrations.com">Email us directly</a></span>
             </div>
           </form>
         </div>
 
         <aside class="contact-card">
           <h2>Prefer to schedule?</h2>
-          <p>Pick a time that works best for you. We’ll review your environment and outline a predictable, business‑safe plan.</p>
+          <p>Pick a time that works for you. You'll speak directly with Jim — no account managers, no hand-offs.</p>
           <div class="cta-row-inline" style="margin-top:12px;">
             <a href="https://calendly.com/summitmigrations/30min?hide_event_type_details=1&hide_gdpr_banner=1" target="_blank" rel="noopener" class="btn btn-secondary">Open Scheduling in a New Tab</a>
           </div>
           <hr style="margin:24px 0;border:0;border-top:1px solid var(--glacier)"/>
           <h3>Other ways to reach us</h3>
-          <p class="note">General inbox: <a href="mailto:jim@summitmigrations.com">jim@summitmigrations.com</a><br/>
-          Website: <a href="https://www.summitmigrations.com/" target="_blank" rel="noopener">https://www.summitmigrations.com/</a></p>
+          <p class="note">General inbox: <a href="mailto:jim@summitmigrations.com">jim@summitmigrations.com</a></p>
         </aside>
 
       </div>

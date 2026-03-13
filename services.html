@@ -3,24 +3,47 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Services – Summit</title>
+  <title>Services – Summit Migrations</title>
   <link rel="stylesheet" href="css/style.css"/>
   <style>
-    /* Page-specific light polish; safe even if main CSS changes later */
-    .services-hero{padding:32px 0;border-top:1px solid var(--glacier);}
-    .breadcrumb{font-size:14px;color:#64748B;margin-bottom:8px}
-    .section-lead{font-size:18px;color:#475569;max-width:820px}
-    .svc-section{padding:40px 0;border-top:1px solid var(--glacier)}
-    .svc-header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:12px}
-    .svc-header h2{margin:0}
-    .svc-list{display:grid;grid-template-columns:repeat(2, minmax(0,1fr));gap:10px 24px;margin:12px 0 0 0;padding:0}
-    .svc-list li{list-style:'•  ';padding-left:6px;color:#374151}
-    @media(max-width:768px){.svc-list{grid-template-columns:1fr}}
-    .anchor-nav{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0 24px 0}
-    .anchor-nav a{padding:8px 10px;border:1px solid var(--glacier);border-radius:999px;text-decoration:none;color:#0B1220;background:#fff}
-    .anchor-nav a:hover{background:#F2F8FF;color:#0B5CAB}
-    .svc-cta{margin-top:24px}
-    .svc-cta a{display:inline-block;background:var(--summit-blue);color:#fff;text-decoration:none;padding:12px 16px;border-radius:8px;font-weight:700}
+    .services-hero {
+      padding: 56px 0;
+      background: linear-gradient(135deg, #0f172a, #1e4a7a);
+      color: #fff;
+    }
+    .services-hero .breadcrumb {
+      font-size: 14px;
+      color: #94a3b8;
+      margin-bottom: 12px;
+    }
+    .services-hero .breadcrumb a {
+      color: #94a3b8;
+      text-decoration: none;
+    }
+    .services-hero .breadcrumb a:hover { color: #fff; }
+    .services-hero h1 { color: #fff; margin-bottom: 12px; }
+    .services-hero .section-lead { color: #cbd5e1; max-width: 820px; margin-bottom: 24px; font-size: 18px; }
+    .anchor-nav { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+    .anchor-nav a {
+      padding: 8px 14px;
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 999px;
+      text-decoration: none;
+      color: #e2e8f0;
+      background: rgba(255,255,255,0.08);
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .anchor-nav a:hover { background: rgba(255,255,255,0.18); color: #fff; }
+    .svc-section { padding: 40px 0; border-top: 1px solid var(--glacier); }
+    .svc-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 12px; }
+    .svc-header h2 { margin: 0; }
+    .svc-list { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px 24px; margin: 12px 0 0 0; padding: 0; }
+    .svc-list li { list-style: '•  '; padding-left: 6px; color: #374151; }
+    @media(max-width:768px) { .svc-list { grid-template-columns: 1fr; } }
+    .svc-cta { margin-top: 24px; }
+    .svc-cta a { display: inline-block; background: var(--summit-blue); color: #fff; text-decoration: none; padding: 12px 16px; border-radius: 8px; font-weight: 700; }
+    .svc-cta a:hover { filter: brightness(1.05); }
   </style>
 </head>
 <body>
@@ -32,7 +55,7 @@
         <a href="services.html">Services</a>
         <a href="why-summit.html">Why Summit</a>
         <a href="case-studies.html">Case Studies</a>
-        <a href="book.html">Book</a>
+        <a href="book.html">Schedule</a>
         <a href="contact.html">Contact</a>
       </nav>
     </div>
@@ -42,15 +65,14 @@
     <section class="services-hero">
       <div class="container">
         <div class="breadcrumb"><a href="index.html">Home</a> / Services</div>
-        <h1>Microsoft 365 Migration & Enablement Services</h1>
-        <p class="section-lead">From new tenant setup to complex tenant‑to‑tenant programs, we deliver migrations that are predictable, business‑safe, and built on hardened runbooks.</p>
-
+        <h1>Microsoft 365 Migration &amp; Enablement Services</h1>
+        <p class="section-lead">From new tenant setup to complex global migrations, every engagement is engineered to protect your data and your users every step of the way.</p>
         <div class="anchor-nav">
           <a href="#tenant-setup">M365 Tenant Setup</a>
-          <a href="#tenant-to-tenant">Tenant‑to‑Tenant</a>
-          <a href="#cloud-migrations">Cloud → M365</a>
-          <a href="#fileshare-migrations">File Shares → M365</a>
-          <a href="#email-migrations">Email → Exchange Online</a>
+          <a href="#tenant-to-tenant">Tenant&#8209;to&#8209;Tenant</a>
+          <a href="#cloud-migrations">Cloud &#8594; M365</a>
+          <a href="#fileshare-migrations">File Shares &#8594; M365</a>
+          <a href="#email-migrations">Email &#8594; Exchange Online</a>
           <a href="#rescue">Migration Rescue</a>
         </div>
       </div>
@@ -59,15 +81,15 @@
     <section id="tenant-setup" class="svc-section">
       <div class="container">
         <div class="svc-header">
-          <h2>M365 Tenant Setup & Configuration</h2>
+          <h2>M365 Tenant Setup &amp; Configuration</h2>
         </div>
         <ul class="svc-list">
-          <li>New Tenant Provisioning & Baseline Configuration</li>
-          <li>SharePoint Architecture & Landing Zone Design</li>
-          <li>Security & Compliance Baseline (Conditional Access, DLP, MFA)</li>
+          <li>New Tenant Provisioning &amp; Baseline Configuration</li>
+          <li>SharePoint Architecture &amp; Landing Zone Design</li>
+          <li>Security &amp; Compliance Baseline (Conditional Access, DLP, MFA)</li>
           <li>OneDrive Policy Configuration</li>
-          <li>Exchange Online Setup & Mail Flow Configuration</li>
-          <li>Migration‑Ready Tenant Assessment</li>
+          <li>Exchange Online Setup &amp; Mail Flow Configuration</li>
+          <li>Migration&#8209;Ready Tenant Assessment</li>
         </ul>
         <div class="svc-cta"><a href="book.html">Start with Setup</a></div>
       </div>
@@ -76,14 +98,14 @@
     <section id="tenant-to-tenant" class="svc-section">
       <div class="container">
         <div class="svc-header">
-          <h2>Tenant‑to‑Tenant Migrations</h2>
+          <h2>Tenant&#8209;to&#8209;Tenant Migrations</h2>
         </div>
         <ul class="svc-list">
-          <li>Tenant‑to‑Tenant Migration (M&A)</li>
-          <li>Tenant‑to‑Tenant Migration (Divestiture)</li>
-          <li>Tenant‑to‑Tenant Migration (Consolidation / Reorg)</li>
-          <li>Tenant Coexistence & GAL Sync Setup</li>
-          <li>Post‑Migration Tenant Cleanup</li>
+          <li>Tenant&#8209;to&#8209;Tenant Migration (M&amp;A)</li>
+          <li>Tenant&#8209;to&#8209;Tenant Migration (Divestiture)</li>
+          <li>Tenant&#8209;to&#8209;Tenant Migration (Consolidation / Reorg)</li>
+          <li>Tenant Coexistence &amp; GAL Sync Setup</li>
+          <li>Post&#8209;Migration Tenant Cleanup</li>
         </ul>
         <div class="svc-cta"><a href="book.html">Plan a T2T Engagement</a></div>
       </div>
@@ -92,14 +114,14 @@
     <section id="cloud-migrations" class="svc-section">
       <div class="container">
         <div class="svc-header">
-          <h2>Cloud‑to‑M365 Migrations</h2>
+          <h2>Cloud&#8209;to&#8209;M365 Migrations</h2>
         </div>
         <ul class="svc-list">
-          <li>Box → SharePoint/OneDrive Migration</li>
-          <li>Dropbox → SharePoint/OneDrive Migration</li>
-          <li>Google Drive → SharePoint/OneDrive Migration</li>
-          <li>Google Workspace → M365 Migration (full suite)</li>
-          <li>Egnyte → SharePoint/OneDrive Migration</li>
+          <li>Box &#8594; SharePoint/OneDrive Migration</li>
+          <li>Dropbox &#8594; SharePoint/OneDrive Migration</li>
+          <li>Google Drive &#8594; SharePoint/OneDrive Migration</li>
+          <li>Google Workspace &#8594; M365 Migration (full suite)</li>
+          <li>Egnyte &#8594; SharePoint/OneDrive Migration</li>
         </ul>
         <div class="svc-cta"><a href="book.html">Discuss a Cloud Migration</a></div>
       </div>
@@ -111,10 +133,10 @@
           <h2>File Share Migrations</h2>
         </div>
         <ul class="svc-list">
-          <li>On‑Premises File Share → OneDrive Migration</li>
-          <li>On‑Premises File Share → SharePoint Online Migration</li>
-          <li>NAS → SharePoint/OneDrive Migration</li>
-          <li>Permissions Remediation & Hygiene</li>
+          <li>On&#8209;Premises File Share &#8594; OneDrive Migration</li>
+          <li>On&#8209;Premises File Share &#8594; SharePoint Online Migration</li>
+          <li>NAS &#8594; SharePoint/OneDrive Migration</li>
+          <li>Permissions Remediation &amp; Hygiene</li>
           <li>Information Architecture Design</li>
         </ul>
         <div class="svc-cta"><a href="book.html">Evaluate Your File Shares</a></div>
@@ -127,10 +149,10 @@
           <h2>Email Migrations</h2>
         </div>
         <ul class="svc-list">
-          <li>Google Workspace → Exchange Online Migration</li>
-          <li>On‑Premises Exchange → Exchange Online Migration</li>
-          <li>Hosted Exchange → Exchange Online Migration</li>
-          <li>PST Import & Remediation</li>
+          <li>Google Workspace &#8594; Exchange Online Migration</li>
+          <li>On&#8209;Premises Exchange &#8594; Exchange Online Migration</li>
+          <li>Hosted Exchange &#8594; Exchange Online Migration</li>
+          <li>PST Import &amp; Remediation</li>
         </ul>
         <div class="svc-cta"><a href="book.html">Plan an Email Migration</a></div>
       </div>
@@ -143,11 +165,23 @@
         </div>
         <ul class="svc-list">
           <li>Stalled Migration Recovery</li>
-          <li>Data Integrity Assessment & Remediation</li>
-          <li>Timeline & Scope Recovery Planning</li>
-          <li>Third‑Party Tool Troubleshooting</li>
+          <li>Data Integrity Assessment &amp; Remediation</li>
+          <li>Timeline &amp; Scope Recovery Planning</li>
+          <li>Third&#8209;Party Tool Troubleshooting</li>
         </ul>
         <div class="svc-cta"><a href="book.html">Stabilize a Troubled Project</a></div>
+      </div>
+    </section>
+
+    <section class="svc-section">
+      <div class="container">
+        <div class="cta-banner">
+          <div>
+            <h2 style="margin:0 0 6px">Not sure where to start?</h2>
+            <p style="margin:0;color:#e5e7eb">A 30-minute conversation is all it takes to get a clear picture of what your migration requires.</p>
+          </div>
+          <div><a href="book.html">Schedule a Consultation</a></div>
+        </div>
       </div>
     </section>
   </main>
