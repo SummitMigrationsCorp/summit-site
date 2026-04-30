@@ -7,7 +7,10 @@
 .callout{background:#F8FAFF;padding:22px;border-left:4px solid var(--summit-blue);border-radius:12px;margin-top:16px}</style>
 </head>
 <body><header><div class='header-inner'><a href='index.html'><img src='assets/logo/Summit_Primary_1500.png' class='logo'></a>
-<nav><a href='index.html'>Home</a><a href='services.html'>Services</a><a href='why-summit.html'>Why Summit</a><a href='case-studies.html'>Case Studies</a><a href='book.html'>Schedule</a><a href='contact.html'>Contact</a></nav></div></header>
+<nav><a href='index.html'>Home</a><a href='services.html'>Services</a><a href='why-summit.html'>Why Summit</a><a href='case-studies.html'>Case Studies</a><a href='book.html'>Schedule</a><a href='contact.html'>Contact</a></nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Open navigation menu">
+        <span></span><span></span><span></span>
+      </button></div></header>
 <main>
 <section class='hero-full'><div class='container'>
 <div class='breadcrumb' style='color:#cbd5e1;'><a href='index.html' style='color:#cbd5e1;'>Home</a> / <a href='case-studies.html' style='color:#cbd5e1;'>Case Studies</a> / <a href='case-energy.html' style='color:#cbd5e1;'>Energy Sector</a> / Full</div>
@@ -68,4 +71,14 @@
 <div><a href='book.html'>Book a Consultation</a></div></div></div></section>
 
 </main>
-<footer><div class='footer-inner'><img src='assets/logo/Summit_White_Transparent_1500.png' class='footer-logo'><div>© 2026 Summit Migrations Corp.</div></div></footer></body></html>
+<footer><div class='footer-inner'><img src='assets/logo/Summit_White_Transparent_1500.png' class='footer-logo'><div>© 2026 Summit Migrations Corp.</div></div></footer>
+  <script>
+    var toggle = document.getElementById("navToggle");
+    var nav = document.querySelector("header nav");
+    toggle.addEventListener("click", function() {
+      var open = nav.classList.toggle("mobile-open");
+      toggle.classList.toggle("open", open);
+      toggle.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
+    });
+  </script>
+</body></html>

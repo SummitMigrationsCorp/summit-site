@@ -43,6 +43,9 @@
         <a href="book.html">Schedule</a>
         <a href="contact.html">Contact</a>
       </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Open navigation menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
@@ -84,5 +87,15 @@
       <div>© 2026 Summit Migrations Corp.</div>
     </div>
   </footer>
+
+  <script>
+    var toggle = document.getElementById("navToggle");
+    var nav = document.querySelector("header nav");
+    toggle.addEventListener("click", function() {
+      var open = nav.classList.toggle("mobile-open");
+      toggle.classList.toggle("open", open);
+      toggle.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
+    });
+  </script>
 </body>
 </html>

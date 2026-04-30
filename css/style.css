@@ -393,25 +393,164 @@ footer {
   box-shadow: var(--shadow);
 }
 
-/* Responsive */
+/* =============================================
+   HAMBURGER MENU
+   ============================================= */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  z-index: 20;
+}
+.nav-toggle:hover {
+  background: #f2f8ff;
+}
+.nav-toggle span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+/* Animate to X when open */
+.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile nav drawer */
+nav.mobile-open {
+  display: flex !important;
+  flex-direction: column;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-bottom: 1px solid var(--glacier);
+  padding: 16px 24px 24px;
+  z-index: 15;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+nav.mobile-open a {
+  margin-left: 0;
+  padding: 14px 8px;
+  border-bottom: 1px solid var(--glacier);
+  font-size: 17px;
+}
+nav.mobile-open a:last-child {
+  border-bottom: none;
+}
+
+/* =============================================
+   RESPONSIVE BREAKPOINTS
+   ============================================= */
+
+/* Tablet: 1024px */
 @media (max-width: 1024px) {
   .grid.cols-4 {
     grid-template-columns: repeat(2, 1fr);
   }
-}
-@media (max-width: 768px) {
-  .grid.cols-3 {
-    grid-template-columns: 1fr;
+  .grid.cols-5 {
+    grid-template-columns: repeat(2, 1fr);
   }
-  .hero {
-    height: 560px;
+}
+
+/* Mobile: 768px */
+@media (max-width: 768px) {
+
+  /* Header */
+  header {
+    height: 80px;
   }
   .logo {
-    height: 64px;
+    height: 56px;
   }
+
+  /* Show hamburger, hide inline nav */
+  .nav-toggle {
+    display: flex;
+  }
+  header nav {
+    display: none;
+  }
+
+  /* Grids → single column */
+  .grid.cols-3,
+  .grid.cols-4,
+  .grid.cols-5 {
+    grid-template-columns: 1fr;
+  }
+
+  /* Hero */
+  .hero {
+    height: auto;
+    min-height: 420px;
+    padding: 48px 0;
+  }
+  .hero-inner {
+    padding: 0 var(--space-4);
+  }
+
+  /* CTA buttons stack on mobile */
+  .cta-row {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .cta-row a {
+    margin-right: 0;
+    width: auto;
+  }
+
+  /* Section padding tighter on mobile */
+  .section {
+    padding: var(--space-6) 0;
+    padding-bottom: calc(var(--space-6) - var(--space-2));
+  }
+
+  /* CTA banner stacks */
+  .cta-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  /* Calendly */
   .calendly-inline-widget {
     height: auto;
     min-height: 640px;
+  }
+
+  /* Contact form: single column on mobile */
+  form .row {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* book.html expect grid */
+  .expect-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* why-summit.html why-grid */
+  .why-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* services.html anchor nav wraps fine already via flex-wrap */
+
+  /* Reduce container padding on narrow screens */
+  .container {
+    padding: 0 var(--space-4);
   }
 }
 /* Hide any empty element dropped right after a badge */
