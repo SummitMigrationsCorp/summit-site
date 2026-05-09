@@ -3,141 +3,578 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Why Summit – Summit Migrations</title>
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png"/>
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png"/>
+  <meta name="theme-color" content="#0b1120"/>
+  <title>Our Story – Summit Migrations</title>
+  <link rel="canonical" href="https://www.summitmigrations.com/why-summit.html"/>
+  <meta name="description" content="Summit Migrations was founded by Jim Galfano, a former Microsoft FastTrack engineer with 25+ years of enterprise migration experience. This is his story."/>
+
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js" defer></script>
+
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css"/>
+
   <style>
-    .why-hero {
-      padding: 56px 0;
-      background: linear-gradient(135deg, #0f172a, #1e4a7a);
+    /* — Page-specific styles for Why Summit — */
+
+    .story-hero {
+      padding: var(--space-9) 0 var(--space-8);
+      background: linear-gradient(135deg, var(--midnight) 0%, #0f2d52 100%);
+    }
+
+    .story-hero .breadcrumb {
+      margin-bottom: var(--space-4);
+    }
+
+    .story-hero h1 {
       color: #fff;
+      max-width: 720px;
+      margin-bottom: var(--space-4);
     }
-    .why-hero .breadcrumb {
+
+    .story-hero .hero-lead {
+      color: #94a3b8;
+      font-size: clamp(16px, 1.3vw, 19px);
+      line-height: 1.65;
+      max-width: 640px;
+      margin: 0;
+    }
+
+    /* Credential bar below hero */
+    .cred-bar {
+      background: rgba(255,255,255,0.04);
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding: var(--space-5) 0;
+    }
+
+    .cred-bar-inner {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 var(--space-6);
+      display: flex;
+      gap: var(--space-7);
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .cred-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cred-icon {
+      width: 36px;
+      height: 36px;
+      background: rgba(0,120,212,0.2);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #7ec8f7;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .cred-text strong {
+      display: block;
+      font-family: var(--font-display);
       font-size: 14px;
-      color: #94a3b8;
-      margin-bottom: 12px;
+      font-weight: 700;
+      color: #e2e8f0;
+      line-height: 1.2;
     }
-    .why-hero .breadcrumb a {
-      color: #94a3b8;
-      text-decoration: none;
+
+    .cred-text span {
+      font-size: 12px;
+      color: #4e6080;
     }
-    .why-hero .breadcrumb a:hover { color: #fff; }
-    .why-hero h1 { color: #fff; margin-bottom: 12px; }
-    .why-hero .section-lead { color: #cbd5e1; max-width: 820px; margin-bottom: 0; font-size: 18px; line-height: 1.65; }
-    .why-hero .section-lead strong { color: #fff; }
-    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 24px; }
-    .why-card { background: #fff; border: 1px solid var(--glacier); border-radius: var(--radius); padding: var(--space-5); box-shadow: 0 2px 10px rgba(0,0,0,.03); }
-    .why-icon { width: 56px; height: 56px; display: block; margin-bottom: 12px; border-radius: 50%; }
-    .why-card h3 { margin-top: 4px; }
-    @media(max-width: 768px) { .why-grid { grid-template-columns: 1fr; } }
+
+    /* Story body layout */
+    .story-body {
+      padding: var(--space-9) 0;
+    }
+
+    .story-layout {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: var(--space-9);
+      align-items: start;
+    }
+
+    /* Chapter styles */
+    .story-chapter {
+      margin-bottom: var(--space-8);
+    }
+
+    .story-chapter:last-child {
+      margin-bottom: 0;
+    }
+
+    .chapter-label {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--summit-blue);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-3);
+      display: block;
+    }
+
+    .story-chapter h2 {
+      font-size: clamp(20px, 2vw, 26px);
+      color: var(--text);
+      margin-bottom: var(--space-4);
+      letter-spacing: -0.015em;
+    }
+
+    .story-chapter p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #374151;
+      margin-bottom: var(--space-4);
+    }
+
+    .story-chapter p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Pull quote */
+    .pull-quote {
+      border-left: 3px solid var(--summit-blue);
+      padding: var(--space-4) var(--space-5);
+      margin: var(--space-6) 0;
+      background: #f8faff;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+
+    .pull-quote p {
+      font-family: var(--font-display);
+      font-size: clamp(17px, 1.5vw, 21px) !important;
+      font-weight: 600;
+      color: var(--text) !important;
+      line-height: 1.5 !important;
+      margin: 0 !important;
+      font-style: italic;
+      letter-spacing: -0.01em;
+    }
+
+    /* Sidebar */
+    .story-sidebar {
+      position: sticky;
+      top: 100px;
+      max-height: calc(100vh - 120px);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-5);
+    }
+
+    .sidebar-card {
+      background: var(--navy);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius);
+      padding: var(--space-5);
+    }
+
+    .sidebar-card h3 {
+      color: #e2e8f0;
+      font-size: 15px;
+      margin-bottom: var(--space-4);
+    }
+
+    .sidebar-stat {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      padding: var(--space-3) 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .sidebar-stat:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .sidebar-stat-num {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff;
+      min-width: 64px;
+      line-height: 1;
+    }
+
+    .sidebar-stat-num.green {
+      color: #4ade80;
+    }
+
+    .sidebar-stat-label {
+      font-size: 13px;
+      color: #64748b;
+      line-height: 1.4;
+    }
+
+    .sidebar-cta {
+      background: var(--summit-blue);
+      border-radius: var(--radius);
+      padding: var(--space-5);
+      text-align: center;
+    }
+
+    .sidebar-cta p {
+      color: rgba(255,255,255,0.8);
+      font-size: 14px;
+      margin-bottom: var(--space-4);
+    }
+
+    .sidebar-cta .btn {
+      background: #fff;
+      color: var(--navy);
+      width: 100%;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    .sidebar-cta .btn:hover {
+      background: #e2e8f0;
+    }
+
+    /* Chapter divider */
+    .chapter-divider {
+      width: 40px;
+      height: 2px;
+      background: var(--glacier);
+      border-radius: 2px;
+      margin: var(--space-7) 0;
+    }
+
+    /* Closing line */
+    .story-close {
+      font-family: var(--font-display);
+      font-size: clamp(18px, 1.8vw, 24px);
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.01em;
+      line-height: 1.4;
+      margin-top: var(--space-7);
+      padding-top: var(--space-7);
+      border-top: 1px solid var(--glacier);
+    }
+
+    .story-close em {
+      font-style: italic;
+      color: var(--summit-blue);
+    }
+
+    @media (max-width: 1024px) {
+      .story-layout {
+        grid-template-columns: 1fr;
+      }
+      .story-sidebar {
+        position: static;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .cred-bar-inner {
+        gap: var(--space-4);
+      }
+    }
   </style>
 </head>
-
 <body>
-<header>
-  <div class="header-inner">
-    <a href="index.html">
-      <img src="assets/logo/Summit_Primary_1500.png" class="logo" alt="Summit Migrations logo"/>
-    </a>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="why-summit.html">Why Summit</a>
-      <a href="case-studies.html">Case Studies</a>
-      <a href="book.html">Schedule</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+
+  <!-- ================================================
+       HEADER
+       ================================================ -->
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="site-logo" aria-label="Summit Migrations home">
+        <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <polygon points="17,0 34,34 0,34" fill="#0f172a"/>
+          <polygon points="17,0 26,34 8,34"  fill="#0078d4"/>
+          <polygon points="17,0 34,34 26,34" fill="#0a1e3d" opacity="0.8"/>
+          <polygon points="17,0 21,9 13,9"   fill="#ffffff" opacity="0.12"/>
+        </svg>
+        <div class="site-logo-text">
+          <span class="site-logo-name">Summit Migrations</span>
+          <span class="site-logo-rule"></span>
+        </div>
+      </a>
+
+      <div class="header-right">
+        <nav id="mainNav">
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="why-summit.html">Why Summit</a>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="contact.html">Contact</a>
+          <a href="book.html" class="nav-cta">Book a Consultation</a>
+        </nav>
+        <div class="ms-partner-badge" title="Microsoft Partner ID 7109767">
+          <svg width="20" height="20" viewBox="0 0 23 23" fill="none">
+            <rect x="1" y="1" width="10" height="10" fill="#f25022"/>
+            <rect x="12" y="1" width="10" height="10" fill="#7fba00"/>
+            <rect x="1" y="12" width="10" height="10" fill="#00a4ef"/>
+            <rect x="12" y="12" width="10" height="10" fill="#ffb900"/>
+          </svg>
+          <span>Microsoft Partner</span>
+        </div>
+      </div>
+
       <button class="nav-toggle" id="navToggle" aria-label="Open navigation menu">
         <span></span><span></span><span></span>
       </button>
-  </div>
-</header>
-
-<main>
-  <section class="why-hero">
-    <div class="container">
-      <div class="breadcrumb"><a href="index.html">Home</a> / Why Summit</div>
-      <h1>Why Summit Migrations</h1>
-      <p class="section-lead">
-        Summit Migrations was built on one principle: <strong>enterprise-grade expertise delivered with genuine care for your organization and your outcome.</strong>
-        We bring the technical depth of a large consultancy with the focus and accountability of a dedicated partner.
-      </p>
     </div>
-  </section>
+  </header>
 
-  <section class="section">
-    <div class="container">
-      <span class="badge">Why Organizations Choose Summit</span>
-      <div class="why-grid">
+  <main>
 
-        <div class="why-card">
-          <img src="assets/images/why-expertise.png" alt="Deep M365 Expertise icon" class="why-icon">
-          <h3>Deep M365 Expertise</h3>
-          <p>Hands-on Microsoft 365 migration experience across global enterprise environments, including Microsoft FastTrack.</p>
+    <!-- ================================================
+         STORY HERO
+         ================================================ -->
+    <section class="story-hero">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="index.html">Home</a> / Our Story
         </div>
-
-        <div class="why-card">
-          <img src="assets/images/why-guidance.png" alt="Technical Guidance icon" class="why-icon">
-          <h3>Technical Guidance at Every Step</h3>
-          <p>Active technical oversight from kickoff to close, mentoring teams, validating decisions, and keeping your migration moving with confidence.</p>
-        </div>
-
-        <div class="why-card">
-          <img src="assets/images/why-clean.png" alt="Clean Landing icon" class="why-icon">
-          <h3>Built for a Clean Landing</h3>
-          <p>Information architecture, permissions hygiene, and SharePoint structure established before migration, so your users arrive to an organized, ready-day-one environment.</p>
-        </div>
-
-        <div class="why-card">
-          <img src="assets/images/why-outcomes.png" alt="Outcomes icon" class="why-icon">
-          <h3>Committed to Your Outcomes</h3>
-          <p>Reduced risk, predictable timelines, and a migration experience your users barely notice. That is the standard for every engagement.</p>
-        </div>
-
-        <div class="why-card">
-          <img src="assets/images/why-hard.png" alt="Complex migrations icon" class="why-icon">
-          <h3>Experienced in the Hard Ones</h3>
-          <p>Calm, structured execution for high-stakes, time-sensitive, or technically constrained migrations where precision matters.</p>
-        </div>
-
-        <div class="why-card">
-          <img src="assets/images/why-invested.png" alt="Invested in success icon" class="why-icon">
-          <h3>Invested in Your Success</h3>
-          <p>We take time upfront to understand your users, environment, and goals, resulting in better decisions and fewer surprises.</p>
-        </div>
-
+        <h1>Built by someone who has actually done this — at every level, for 25 years.</h1>
+        <p class="hero-lead">Summit Migrations exists because enterprise migrations deserve better than a staffing agency that places a consultant and disappears. Here is the experience behind that belief.</p>
       </div>
-    </div>
-  </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="cta-banner">
-        <div>
-          <h2 style="margin:0 0 6px">Ready to see it in action?</h2>
-          <p style="margin:0;color:#e5e7eb">Review our case studies and see how Summit has delivered for organizations at enterprise scale.</p>
+      <!-- Credential bar -->
+      <div class="cred-bar" style="margin-top: var(--space-7);">
+        <div class="cred-bar-inner">
+
+          <div class="cred-item">
+            <div class="cred-icon"><i class="ph ph-medal"></i></div>
+            <div class="cred-text">
+              <strong>Microsoft FastTrack Alumni</strong>
+              <span>Enterprise migration methodology</span>
+            </div>
+          </div>
+
+          <div class="cred-item">
+            <div class="cred-icon" style="background:rgba(34,197,94,0.15); color:#4ade80;">
+              <i class="ph ph-database"></i>
+            </div>
+            <div class="cred-text">
+              <strong>Zero Data Loss — Career Record</strong>
+              <span>Every engagement. Every client.</span>
+            </div>
+          </div>
+
+          <div class="cred-item">
+            <div class="cred-icon">
+              <svg width="18" height="18" viewBox="0 0 23 23" fill="none">
+                <rect x="1" y="1" width="10" height="10" fill="#f25022"/>
+                <rect x="12" y="1" width="10" height="10" fill="#7fba00"/>
+                <rect x="1" y="12" width="10" height="10" fill="#00a4ef"/>
+                <rect x="12" y="12" width="10" height="10" fill="#ffb900"/>
+              </svg>
+            </div>
+            <div class="cred-text">
+              <strong>Microsoft Partner</strong>
+              <span>MPN ID 7109767</span>
+            </div>
+          </div>
+
+          <div class="cred-item">
+            <div class="cred-icon"><i class="ph ph-globe"></i></div>
+            <div class="cred-text">
+              <strong>4 Continents</strong>
+              <span>Knauf · Exelon · Edelman · Inova</span>
+            </div>
+          </div>
+
         </div>
-        <div><a href="case-studies.html">View Case Studies</a></div>
       </div>
+    </section>
+
+    <!-- ================================================
+         STORY BODY
+         ================================================ -->
+    <section class="story-body">
+      <div class="container">
+        <div class="story-layout">
+
+          <!-- Main narrative -->
+          <div class="story-main">
+
+            <!-- Chapter 1 -->
+            <div class="story-chapter">
+              <span class="chapter-label">The Beginning</span>
+              <h2>He walked into his first migration on his first day back in America.</h2>
+              <p>In 1997, Jim Galfano arrived in Silicon Valley and took a job at KLA-Tencor, a major semiconductor equipment company. The reason they hired him: the company was consolidating several email platforms into Microsoft Exchange and needed someone who understood where they were going well enough to get them there cleanly.</p>
+              <p>He hadn't planned to be a migration specialist. It just turned out that every role that followed had something being moved from one place to another — email platforms, financial systems, file shares, phone infrastructure, on-premises servers making way for the cloud. The technologies kept changing. The underlying challenge never did: move an organization's data safely, completely, and without disrupting the people who depend on it.</p>
+
+              <div class="pull-quote">
+                <p>"As long as companies exist and technology advances, there will always be organizations that need to move from where they are to somewhere better."</p>
+              </div>
+            </div>
+
+            <div class="chapter-divider"></div>
+
+            <!-- Chapter 2 -->
+            <div class="story-chapter">
+              <span class="chapter-label">Silicon Valley — Late 1990s</span>
+              <h2>His cage was next to Google's. His hallway neighbor was Linus Torvalds.</h2>
+              <p>Working at Pocket.com in the late 1990s, Jim spent considerable time at Exodus Communications in Santa Clara — one of the premier internet data centers of the era. Pocket.com's server cage was immaculate: properly secured, earthquake-proofed, cables managed with care. The cage immediately next door was a different story — gear not strapped down, cable management an afterthought. The company in that cage was a small search startup that hadn't yet become a household name. It was Google.</p>
+              <p>Around the same period, Jim needed access to a shared wiring closet at a neighboring Santa Clara office and didn't have the key. He knocked. The person who came downstairs was Linus Torvalds, creator of Linux. They had a brief, friendly exchange and both went back to work. No ceremony, no drama. That was simply what it meant to work in Silicon Valley at that specific moment — the people building the infrastructure of the modern world were just the people next door.</p>
+            </div>
+
+            <div class="chapter-divider"></div>
+
+            <!-- Chapter 3 -->
+            <div class="story-chapter">
+              <span class="chapter-label">City of Tracy, California — 2000</span>
+              <h2>A server on a kitchen table. A city's finances at risk. An opportunity.</h2>
+              <p>When the dot-com collapse was reshaping the Valley, Jim was brought in to investigate a malfunctioning financial system sending Tracy residents water bills in the thousands of dollars. He fixed the bug. What he found next was more alarming: the city's critical financial server was sitting on a kitchen table next to a water cooler. No server room. No redundancy. No plan.</p>
+              <p>The city asked him to stay as IT Manager. He accepted. Over the years that followed, he built Tracy's technology infrastructure from scratch — a proper server room, enterprise-grade hardware, NetApp storage, virtualization, a staffed Help Desk, a full VoIP migration. He made the case to city leadership, navigated city council budget approvals, and delivered. On August 19, 2002, the Tri-Valley Herald put him on the front page, above the fold. His mother had the article framed.</p>
+            </div>
+
+            <div class="chapter-divider"></div>
+
+            <!-- Chapter 4 -->
+            <div class="story-chapter">
+              <span class="chapter-label">Microsoft FastTrack &amp; Enterprise Practice</span>
+              <h2>The experience that most consultants never get access to.</h2>
+              <p>The engagements that followed took Jim through some of the most demanding environments in enterprise IT — Exelon Nuclear, Blue Cross Blue Shield of Michigan, Inova Health System, Edelman Financial Engines. Compliance requirements, data sensitivity, and zero tolerance for error defined every one of them.</p>
+              <p>The defining chapter came when Jim was selected to join Microsoft's FastTrack program as a Migration Support Specialist — working directly with Fortune 100 clients on migration strategy, tooling, and execution across the full M365 ecosystem. Most external consultants never see that vantage point. The experience gave him an inside-out understanding of how Microsoft itself approaches these problems: a different and more complete kind of knowledge than what can be gathered from the outside.</p>
+
+              <div class="pull-quote">
+                <p>That kind of outcome doesn't come from following a checklist. It comes from having seen enough difficult situations to recognize a novel problem clearly — and work through it until it isn't one anymore.</p>
+              </div>
+
+              <p>The Knauf Insulation engagement illustrates what that experience looks like in practice. As the sole migration specialist on a global program spanning 20+ countries across Europe, Asia, and North America, Jim encountered something the standard playbook hadn't addressed: several facilities had no internet connectivity at all. His solution was to ship Microsoft Azure Data Box hardware directly to those sites, stage the data locally, and execute through standard tooling once it was in position. Every server retired. Every country accounted for. Zero data lost.</p>
+            </div>
+
+            <div class="chapter-divider"></div>
+
+            <!-- Chapter 5 -->
+            <div class="story-chapter">
+              <span class="chapter-label">Why Summit Exists</span>
+              <h2>The company he would have wanted to work for.</h2>
+              <p>Jim spent a significant portion of his career working through staffing and consulting agencies, and he understands that model thoroughly — including its limitations. The traditional approach places a consultant, steps back, and goes quiet until the contract ends. Technical guidance, mentorship, and real investment in outcomes are generally not part of the arrangement.</p>
+              <p>Summit Migrations was built around a different premise: that consultants with genuine technical backing consistently deliver better results for clients, and build more satisfying careers for themselves. Every Summit engagement carries the weight of 25+ years of hands-on enterprise experience. When a difficult problem appears — and on complex migrations, they always do — there is someone behind the engagement who has seen it before.</p>
+            </div>
+
+            <!-- Closing -->
+            <p class="story-close">From a server cage in Santa Clara to a migration spanning four continents — the experience behind Summit is the kind that only comes from <em>having actually done the work,</em> for a long time, at the highest level the industry demands.</p>
+
+          </div>
+
+          <!-- Sidebar -->
+          <aside class="story-sidebar">
+
+            <div class="sidebar-card">
+              <h3>By the numbers</h3>
+
+              <div class="sidebar-stat">
+                <div class="sidebar-stat-num">25+</div>
+                <div class="sidebar-stat-label">Years of enterprise Microsoft experience</div>
+              </div>
+
+              <div class="sidebar-stat">
+                <div class="sidebar-stat-num green">0</div>
+                <div class="sidebar-stat-label">Data loss incidents across career history</div>
+              </div>
+
+              <div class="sidebar-stat">
+                <div class="sidebar-stat-num">20+</div>
+                <div class="sidebar-stat-label">Countries on the Knauf global program</div>
+              </div>
+
+              <div class="sidebar-stat">
+                <div class="sidebar-stat-num">45K</div>
+                <div class="sidebar-stat-label">Users migrated at Exelon — nuclear regulated</div>
+              </div>
+
+              <div class="sidebar-stat">
+                <div class="sidebar-stat-num">120TB</div>
+                <div class="sidebar-stat-label">Transferred at Exelon with zero incidents</div>
+              </div>
+
+            </div>
+
+            <div class="sidebar-card">
+              <h3>Enterprise clients</h3>
+              <div class="sidebar-stat">
+                <div class="sidebar-stat-label" style="color:#94a3b8; font-size:14px; line-height:1.8;">
+                  Exelon Nuclear<br/>
+                  Knauf Insulation<br/>
+                  Edelman Financial Engines<br/>
+                  Inova Health System<br/>
+                  Blue Cross Blue Shield of Michigan<br/>
+                  City of Tracy, California
+                </div>
+              </div>
+            </div>
+
+            <div class="sidebar-cta">
+              <p>Ready to put this experience to work on your migration?</p>
+              <a href="book.html" class="btn">
+                <i class="ph ph-calendar-check"></i>
+                Book a Consultation
+              </a>
+            </div>
+
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="section" style="padding-top:0;">
+      <div class="container">
+        <div class="cta-banner">
+          <div>
+            <h2>Ready to migrate with confidence?</h2>
+            <p>A 30-minute consultation is all it takes to get a clear, honest picture of what your migration requires.</p>
+          </div>
+          <a href="book.html" class="btn">Book a Consultation →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================================================
+       FOOTER
+       ================================================ -->
+  <footer>
+    <div class="footer-inner">
+      <a href="index.html" class="site-logo site-logo-footer" aria-label="Summit Migrations home">
+        <svg width="28" height="28" viewBox="0 0 34 34" fill="none" aria-hidden="true">
+          <polygon points="17,0 34,34 0,34" fill="#1e3a5f"/>
+          <polygon points="17,0 26,34 8,34"  fill="#0078d4"/>
+          <polygon points="17,0 34,34 26,34" fill="#0a1e3d" opacity="0.8"/>
+          <polygon points="17,0 21,9 13,9"   fill="#ffffff" opacity="0.12"/>
+        </svg>
+        <div class="site-logo-text">
+          <span class="site-logo-name" style="color:#fff;">Summit Migrations</span>
+          <span class="site-logo-rule"></span>
+        </div>
+      </a>
+      <p class="footer-copy">© 2026 Summit Migrations Corp. &nbsp;·&nbsp; Microsoft Partner ID 7109767</p>
     </div>
-  </section>
-</main>
-
-<footer>
-  <div class="footer-inner">
-    <img src="assets/logo/Summit_White_Transparent_1500.png" class="footer-logo" alt="Summit Migrations white logo"/>
-    <div>© 2026 Summit Migrations Corp.</div>
-  </div>
-</footer>
-
+  </footer>
 
   <script>
-    var toggle = document.getElementById("navToggle");
-    var nav = document.querySelector("header nav");
-    toggle.addEventListener("click", function() {
-      var open = nav.classList.toggle("mobile-open");
-      toggle.classList.toggle("open", open);
-      toggle.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
+    var toggle = document.getElementById('navToggle');
+    var nav    = document.getElementById('mainNav');
+    toggle.addEventListener('click', function () {
+      var open = nav.classList.toggle('mobile-open');
+      toggle.classList.toggle('open', open);
+      toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
     });
   </script>
+
 </body>
 </html>

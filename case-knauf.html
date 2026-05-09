@@ -1,158 +1,249 @@
 <!doctype html>
-<html lang='en'>
+<html lang="en">
 <head>
-<meta charset='utf-8'/>
-<meta name='viewport' content='width=device-width, initial-scale=1'/>
-<title>Case Study – Knauf</title>
-<link rel='stylesheet' href='css/style.css'/>
-<style>
-.case-hero {
-  padding: 56px 0;
-  background: linear-gradient(135deg, #0f172a, #1e4a7a);
-  color: #fff;
-}
-.case-hero .breadcrumb {
-  font-size: 14px;
-  color: #94a3b8;
-  margin-bottom: 12px;
-}
-.case-hero .breadcrumb a {
-  color: #94a3b8;
-  text-decoration: none;
-}
-.case-hero .breadcrumb a:hover { color: #fff; }
-.case-hero h1 { color: #fff; margin-bottom: 12px; }
-.case-hero .section-lead { color: #cbd5e1; max-width: 820px; margin-bottom: 0; }
-.metric-bar { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 28px; }
-.metric-tile {
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.18);
-  padding: 16px 22px;
-  border-radius: 12px;
-  color: #fff;
-  min-width: 110px;
-}
-.metric-tile strong { display: block; font-size: 22px; color: #fff; margin-bottom: 2px; }
-.metric-tile span { font-size: 13px; color: #cbd5e1; }
-.section-block { padding: 40px 0; border-top: 1px solid var(--glacier); }
-.spotlight {
-  background: #F8FAFF;
-  border-left: 4px solid var(--summit-blue);
-  padding: 24px;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,.05);
-}
-</style>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png"/>
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png"/>
+  <meta name="theme-color" content="#0b1120"/>
+  <title>Knauf Insulation – Global File Server Migration – Summit Migrations</title>
+  <link rel="canonical" href="https://www.summitmigrations.com/case-knauf.html"/>
+  <meta name="description" content="How Summit retired 400+ file servers across 20+ countries for Knauf Insulation — including offline facilities — with zero data loss in 13 months."/>
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js" defer></script>
+  <link rel="stylesheet" href="css/style.css"/>
+  <style>
+    .case-hero { padding: var(--space-9) 0 0; background: linear-gradient(135deg, var(--midnight) 0%, #0f2d52 100%); }
+    .case-hero h1 { color: #fff; max-width: 780px; margin-bottom: var(--space-4); }
+    .case-hero .hero-lead { color: #94a3b8; font-size: clamp(16px,1.3vw,18px); line-height:1.65; max-width:640px; margin:0; }
+    .metric-strip { background: rgba(255,255,255,0.04); border-top:1px solid rgba(255,255,255,0.07); margin-top:var(--space-7); padding:var(--space-5) 0; }
+    .metric-strip-inner { max-width:var(--container); margin:0 auto; padding:0 var(--space-6); display:flex; gap:var(--space-8); flex-wrap:wrap; align-items:center; }
+    .m-stat { display:flex; flex-direction:column; gap:3px; }
+    .m-stat strong { font-family:var(--font-display); font-size:28px; font-weight:800; color:#fff; line-height:1; letter-spacing:-0.02em; }
+    .m-stat strong.green { color:#4ade80; }
+    .m-stat span { font-size:11px; font-weight:700; color:#4e6080; letter-spacing:0.07em; text-transform:uppercase; }
+    .m-divider { width:1px; height:36px; background:rgba(255,255,255,0.08); flex-shrink:0; }
+    .case-body { padding:var(--space-9) 0; }
+    .case-layout { display:grid; grid-template-columns:1fr 300px; gap:var(--space-8); align-items:start; }
+    .case-section { margin-bottom:var(--space-7); }
+    .case-section:last-child { margin-bottom:0; }
+    .case-section h2 { font-size:clamp(20px,1.8vw,26px); margin-bottom:var(--space-4); color:var(--text); }
+    .case-section p { font-size:16px; line-height:1.75; color:#374151; margin-bottom:var(--space-4); }
+    .case-section p:last-child { margin-bottom:0; }
+    .case-section ul { padding:0; margin:0; list-style:none; display:flex; flex-direction:column; gap:10px; }
+    .case-section ul li { display:flex; align-items:flex-start; gap:10px; font-size:15px; color:#374151; line-height:1.55; }
+    .case-section ul li i { color:var(--summit-blue); font-size:17px; flex-shrink:0; margin-top:1px; }
+    .spotlight { background:#f0f7ff; border-left:3px solid var(--summit-blue); border-radius:0 var(--radius-sm) var(--radius-sm) 0; padding:var(--space-5); margin:var(--space-5) 0; }
+    .spotlight p { margin:0; font-size:15px; line-height:1.7; color:#1e3a5f; }
+    .case-sidebar { position:sticky; top:100px; display:flex; flex-direction:column; gap:var(--space-4); }
+    .cs-sidebar-card { background:var(--navy); border:1px solid rgba(255,255,255,0.07); border-radius:var(--radius); padding:var(--space-5); }
+    .cs-sidebar-card h4 { color:#e2e8f0; font-size:13px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:var(--space-4); }
+    .cs-sidebar-stat { display:flex; flex-direction:column; gap:3px; padding:var(--space-3) 0; border-bottom:1px solid rgba(255,255,255,0.06); }
+    .cs-sidebar-stat:last-child { border-bottom:none; padding-bottom:0; }
+    .cs-sidebar-stat strong { font-family:var(--font-display); font-size:22px; font-weight:800; color:#fff; line-height:1; }
+    .cs-sidebar-stat strong.green { color:#4ade80; }
+    .cs-sidebar-stat span { font-size:12px; color:#64748b; }
+    .cs-sidebar-cta { background:var(--summit-blue); border-radius:var(--radius); padding:var(--space-5); text-align:center; }
+    .cs-sidebar-cta p { color:rgba(255,255,255,0.8); font-size:14px; margin-bottom:var(--space-4); }
+    .cs-sidebar-cta .btn { background:#fff; color:var(--navy); width:100%; justify-content:center; font-size:14px; }
+    .cs-sidebar-cta .btn:hover { background:#e2e8f0; }
+    .section-label { font-size:11px; font-weight:700; color:var(--summit-blue); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:var(--space-3); display:block; }
+    @media(max-width:1024px){ .case-layout{grid-template-columns:1fr;} .case-sidebar{position:static;} }
+  </style>
 </head>
 <body>
-<header>
-  <div class='header-inner'>
-    <a href='index.html'><img src='assets/logo/Summit_Primary_1500.png' class='logo' alt='Summit Migrations logo'></a>
-    <nav>
-      <a href='index.html'>Home</a>
-      <a href='services.html'>Services</a>
-      <a href='why-summit.html'>Why Summit</a>
-      <a href='case-studies.html'>Case Studies</a>
-      <a href='book.html'>Schedule</a>
-      <a href='contact.html'>Contact</a>
-    </nav>
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="site-logo" aria-label="Summit Migrations home">
+        <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true">
+          <polygon points="17,0 34,34 0,34" fill="#0f172a"/>
+          <polygon points="17,0 26,34 8,34" fill="#0078d4"/>
+          <polygon points="17,0 34,34 26,34" fill="#0a1e3d" opacity="0.8"/>
+          <polygon points="17,0 21,9 13,9" fill="#ffffff" opacity="0.12"/>
+        </svg>
+        <div class="site-logo-text">
+          <span class="site-logo-name">Summit Migrations</span>
+          <span class="site-logo-rule"></span>
+        </div>
+      </a>
+      <div class="header-right">
+        <nav id="mainNav">
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="why-summit.html">Why Summit</a>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="contact.html">Contact</a>
+          <a href="book.html" class="nav-cta">Book a Consultation</a>
+        </nav>
+        <div class="ms-partner-badge" title="Microsoft Partner ID 7109767">
+          <svg width="20" height="20" viewBox="0 0 23 23" fill="none">
+            <rect x="1" y="1" width="10" height="10" fill="#f25022"/>
+            <rect x="12" y="1" width="10" height="10" fill="#7fba00"/>
+            <rect x="1" y="12" width="10" height="10" fill="#00a4ef"/>
+            <rect x="12" y="12" width="10" height="10" fill="#ffb900"/>
+          </svg>
+          <span>Microsoft Partner</span>
+        </div>
+      </div>
       <button class="nav-toggle" id="navToggle" aria-label="Open navigation menu">
         <span></span><span></span><span></span>
       </button>
-  </div>
-</header>
+    </div>
+  </header>
 
-<main>
-  <section class='case-hero'>
-    <div class='container'>
-      <div class='breadcrumb'><a href='index.html'>Home</a> / <a href='case-studies.html'>Case Studies</a> / Knauf</div>
-      <h1>Knauf – Global File Server Migration</h1>
-      <p class='section-lead'>A 13-month global program to retire 400+ file servers across 20+ countries, achieving zero data loss including at offline facilities with no internet connectivity.</p>
-      <div class='metric-bar'>
-        <div class='metric-tile'><strong>400+</strong><span>Servers Retired</span></div>
-        <div class='metric-tile'><strong>20+</strong><span>Countries</span></div>
-        <div class='metric-tile'><strong>13 Months</strong><span>Duration</span></div>
-        <div class='metric-tile'><strong>0</strong><span>Data Loss</span></div>
+  <main>
+    <section class="case-hero">
+      <div class="container">
+        <div class="breadcrumb" style="color:#94a3b8; margin-bottom:var(--space-4);">
+          <a href="index.html" style="color:#94a3b8;">Home</a> /
+          <a href="case-studies.html" style="color:#94a3b8;">Case Studies</a> / Knauf Insulation
+        </div>
+        <div style="display:flex; gap:8px; margin-bottom:var(--space-4); flex-wrap:wrap;">
+          <span class="case-tag-pill">Manufacturing</span>
+          <span class="case-tag-pill">Global</span>
+          <span class="case-tag-pill">File Shares → M365</span>
+        </div>
+        <h1>Knauf Insulation — Global File Server Retirement Across 20+ Countries</h1>
+        <p class="hero-lead">A 13-month global program to retire 400+ on-premises file servers across Europe, Asia, and North America — including offline facilities with no internet connectivity — with zero data loss.</p>
       </div>
-    </div>
-  </section>
-
-  <section class='section-block'>
-    <div class='container'>
-      <h2>Client Overview</h2>
-      <p>Knauf is one of Europe's most recognized manufacturing enterprises, with operations spanning more than 20 countries. Their file infrastructure consisted of hundreds of on-premises servers distributed across multilingual, globally dispersed environments.</p>
-    </div>
-  </section>
-
-  <section class='section-block'>
-    <div class='container'>
-      <h2>Challenges</h2>
-      <ul>
-        <li>Multilingual environments across a dozen regions</li>
-        <li>Offline facilities with zero internet connectivity</li>
-        <li>400+ file servers across continents</li>
-        <li>Distributed decision-makers across North America, Europe, and Asia</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class='section-block'>
-    <div class='container'>
-      <h2>Spotlight: Solving Offline Migration</h2>
-      <div class='spotlight'>
-        <p>To migrate data from facilities with no internet connectivity, Summit deployed Microsoft Azure Data Box devices to each offline site. Data was copied locally, devices were shipped back to Microsoft for ingestion into Azure, and the migration was executed using standard tooling, ensuring every location was included in the global rollout.</p>
+      <div class="metric-strip">
+        <div class="metric-strip-inner">
+          <div class="m-stat"><strong>400+</strong><span>Servers Retired</span></div>
+          <div class="m-divider"></div>
+          <div class="m-stat"><strong>20+</strong><span>Countries</span></div>
+          <div class="m-divider"></div>
+          <div class="m-stat"><strong>13 Mo</strong><span>Duration</span></div>
+          <div class="m-divider"></div>
+          <div class="m-stat"><strong class="green">0</strong><span>Data Loss</span></div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class='section-block'>
-    <div class='container'>
-      <h2>Our Approach</h2>
-      <ol>
-        <li>Global Discovery &amp; Inventory</li>
-        <li>Offline Remediation via Azure Data Box</li>
-        <li>Country-by-Country Migrations with Migration Manager &amp; ShareGate</li>
-        <li>Full Reconciliation &amp; Server Retirement per country</li>
-      </ol>
-    </div>
-  </section>
+    <section class="case-body">
+      <div class="container">
+        <div class="case-layout">
+          <div class="case-main">
 
-  <section class='section-block'>
-    <div class='container'>
-      <h2>The Results</h2>
-      <ul>
-        <li>Complete retirement of 400+ servers</li>
-        <li>Zero data loss incidents</li>
-        <li>Offline facilities migrated successfully</li>
-        <li>Full reconciliation and sign-off per region</li>
-      </ul>
-    </div>
-  </section>
+            <div class="case-section">
+              <span class="section-label">Overview</span>
+              <h2>One of the most complex global migration programs Summit has executed.</h2>
+              <p>Knauf, one of Europe's most recognized manufacturers, needed to modernize its global file storage footprint — retiring hundreds of aging on-premises servers distributed across headquarters, regional hubs, and remote manufacturing sites spanning more than twenty countries.</p>
+              <p>Summit served as the sole migration specialist on the engagement, coordinating a phased country-by-country program that required multilingual stakeholder management, innovative technical solutions for offline facilities, and rigorous reconciliation before any server was retired.</p>
+            </div>
 
-  <section class='section-block'>
-    <div class='container'>
-      <div class='cta-row-inline'>
-        <a href='case-knauf-full.html' class='btn btn-secondary'>Read the full Knauf case study →</a>
-        <a href='book.html' class='btn btn-primary'>Book a Consultation</a>
+            <div class="case-section">
+              <span class="section-label">Challenges</span>
+              <h2>The standard playbook wasn't enough.</h2>
+              <ul>
+                <li><i class="ph ph-warning-circle-fill"></i>Multilingual environments across a dozen regions — folder structures, permissions, and stakeholders spanned over a dozen languages</li>
+                <li><i class="ph ph-warning-circle-fill"></i>Offline facilities with zero internet connectivity, making conventional cloud migration tools completely unusable</li>
+                <li><i class="ph ph-warning-circle-fill"></i>400+ distributed file servers requiring rigorous inventory management and phased execution</li>
+                <li><i class="ph ph-warning-circle-fill"></i>Decision-makers dispersed across North America, Europe, and Asia adding coordination complexity</li>
+                <li><i class="ph ph-warning-circle-fill"></i>Mid-program tooling transition from Migration Manager to ShareGate without timeline disruption</li>
+              </ul>
+            </div>
+
+            <div class="case-section">
+              <span class="section-label">Spotlight</span>
+              <h2>Solving the offline facility challenge.</h2>
+              <div class="spotlight">
+                <p>Several remote manufacturing plants had absolutely no internet access — making a conventional cloud migration approach unworkable. Summit deployed Microsoft Azure Data Box devices to each offline site. Data was copied locally onto the physical appliance, shipped to Microsoft for ingestion into Azure, and the migrated dataset was integrated into the standard OneDrive pipeline. No facility was excluded from the global rollout.</p>
+              </div>
+            </div>
+
+            <div class="case-section">
+              <span class="section-label">Our Approach</span>
+              <h2>Methodical. Country by country. Zero shortcuts.</h2>
+              <ul>
+                <li><i class="ph ph-check-circle-fill"></i>Global discovery and master inventory — every file server, share, permission structure, and owner catalogued across all in-scope countries</li>
+                <li><i class="ph ph-check-circle-fill"></i>Offline location remediation via Azure Data Box — enabling full migration pipeline despite absent connectivity</li>
+                <li><i class="ph ph-check-circle-fill"></i>Phased country-by-country migrations using Microsoft Migration Manager and ShareGate</li>
+                <li><i class="ph ph-check-circle-fill"></i>Multilingual stakeholder coordination and approval management throughout</li>
+                <li><i class="ph ph-check-circle-fill"></i>Full reconciliation per country before server retirement — data fidelity, permissions, end-user access, local IT sign-off</li>
+              </ul>
+            </div>
+
+            <div class="case-section">
+              <span class="section-label">Results</span>
+              <h2>Every server. Every country. Zero loss.</h2>
+              <ul>
+                <li><i class="ph ph-check-circle-fill"></i>Complete retirement of 400+ on-premises servers across 20+ countries</li>
+                <li><i class="ph ph-check-circle-fill"></i>Zero data loss incidents across the entire 13-month program</li>
+                <li><i class="ph ph-check-circle-fill"></i>Offline facilities successfully migrated using Azure Data Box</li>
+                <li><i class="ph ph-check-circle-fill"></i>Multilingual stakeholder coordination executed without issue</li>
+                <li><i class="ph ph-check-circle-fill"></i>No timeline disruption during mid-program tooling transition</li>
+              </ul>
+            </div>
+
+            <div class="cta-row-inline">
+              <a href="case-knauf-full.html" class="btn btn-secondary">Read the full case study →</a>
+              <a href="book.html" class="btn btn-primary">Book a Consultation</a>
+            </div>
+
+          </div>
+
+          <aside class="case-sidebar">
+            <div class="cs-sidebar-card">
+              <h4>By the numbers</h4>
+              <div class="cs-sidebar-stat"><strong>400+</strong><span>Servers retired</span></div>
+              <div class="cs-sidebar-stat"><strong>20+</strong><span>Countries</span></div>
+              <div class="cs-sidebar-stat"><strong>13 Mo</strong><span>Engagement duration</span></div>
+              <div class="cs-sidebar-stat"><strong class="green">0</strong><span>Data loss incidents</span></div>
+            </div>
+            <div class="cs-sidebar-card">
+              <h4>Tools &amp; Technologies</h4>
+              <div class="cs-sidebar-stat"><strong style="font-size:15px;">Azure Data Box</strong><span>Offline facility migration</span></div>
+              <div class="cs-sidebar-stat"><strong style="font-size:15px;">Migration Manager</strong><span>Primary migration tooling</span></div>
+              <div class="cs-sidebar-stat"><strong style="font-size:15px;">ShareGate</strong><span>Secondary migration tooling</span></div>
+              <div class="cs-sidebar-stat"><strong style="font-size:15px;">OneDrive for Business</strong><span>Destination platform</span></div>
+            </div>
+            <div class="cs-sidebar-cta">
+              <p>Planning a complex global migration?</p>
+              <a href="book.html" class="btn"><i class="ph ph-calendar-check"></i> Book a Consultation</a>
+            </div>
+          </aside>
+
+        </div>
       </div>
+    </section>
+
+    <section class="section" style="padding-top:0;">
+      <div class="container">
+        <div class="cta-banner">
+          <div>
+            <h2>Facing a complex migration?</h2>
+            <p>Summit brings order, clarity, and confidence to cloud transformations of any scale.</p>
+          </div>
+          <a href="book.html" class="btn">Book a Consultation →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <a href="index.html" class="site-logo site-logo-footer" aria-label="Summit Migrations home">
+        <svg width="28" height="28" viewBox="0 0 34 34" fill="none" aria-hidden="true">
+          <polygon points="17,0 34,34 0,34" fill="#1e3a5f"/>
+          <polygon points="17,0 26,34 8,34" fill="#0078d4"/>
+          <polygon points="17,0 34,34 26,34" fill="#0a1e3d" opacity="0.8"/>
+          <polygon points="17,0 21,9 13,9" fill="#ffffff" opacity="0.12"/>
+        </svg>
+        <div class="site-logo-text">
+          <span class="site-logo-name" style="color:#fff;">Summit Migrations</span>
+          <span class="site-logo-rule"></span>
+        </div>
+      </a>
+      <p class="footer-copy">© 2026 Summit Migrations Corp. &nbsp;·&nbsp; Microsoft Partner ID 7109767</p>
     </div>
-  </section>
-</main>
-
-<footer>
-  <div class='footer-inner'>
-    <img src='assets/logo/Summit_White_Transparent_1500.png' class='footer-logo' alt='Summit Migrations white logo'/>
-    <div>© 2026 Summit Migrations Corp.</div>
-  </div>
-</footer>
-
+  </footer>
   <script>
-    var toggle = document.getElementById("navToggle");
-    var nav = document.querySelector("header nav");
-    toggle.addEventListener("click", function() {
-      var open = nav.classList.toggle("mobile-open");
-      toggle.classList.toggle("open", open);
-      toggle.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
+    var toggle = document.getElementById('navToggle');
+    var nav = document.getElementById('mainNav');
+    toggle.addEventListener('click', function() {
+      var open = nav.classList.toggle('mobile-open');
+      toggle.classList.toggle('open', open);
+      toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
     });
   </script>
 </body>

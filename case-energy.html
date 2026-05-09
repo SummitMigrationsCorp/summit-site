@@ -1,159 +1,248 @@
 <!doctype html>
-<html lang='en'>
+<html lang="en">
 <head>
-<meta charset='utf-8'/>
-<meta name='viewport' content='width=device-width, initial-scale=1'/>
-<title>Case Study – Energy Sector</title>
-<link rel='stylesheet' href='css/style.css'/>
-<style>
-.case-hero {
-  padding: 56px 0;
-  background: linear-gradient(135deg, #0f172a, #1e4a7a);
-  color: #fff;
-}
-.case-hero .breadcrumb {
-  font-size: 14px;
-  color: #94a3b8;
-  margin-bottom: 12px;
-}
-.case-hero .breadcrumb a {
-  color: #94a3b8;
-  text-decoration: none;
-}
-.case-hero .breadcrumb a:hover { color: #fff; }
-.case-hero h1 { color: #fff; margin-bottom: 12px; }
-.case-hero .section-lead { color: #cbd5e1; max-width: 820px; margin-bottom: 0; }
-.metric-bar { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 28px; }
-.metric-tile {
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.18);
-  padding: 16px 22px;
-  border-radius: 12px;
-  color: #fff;
-  min-width: 110px;
-}
-.metric-tile strong { display: block; font-size: 22px; color: #fff; margin-bottom: 2px; }
-.metric-tile span { font-size: 13px; color: #cbd5e1; }
-.section-block { padding: 40px 0; border-top: 1px solid var(--glacier); }
-.spotlight {
-  background: #F8FAFF;
-  border-left: 4px solid var(--summit-blue);
-  padding: 24px;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,.05);
-}
-</style>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png"/>
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png"/>
+  <meta name="theme-color" content="#0b1120"/>
+  <title>Exelon – Large-Scale OneDrive Migration – Summit Migrations</title>
+  <link rel="canonical" href="https://www.summitmigrations.com/case-energy.html"/>
+  <meta name="description" content="How Summit migrated 45,000 users and 120TB inside Exelon's nuclear-regulated Fortune 100 environment with zero data loss and zero business disruption."/>
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js" defer></script>
+  <link rel="stylesheet" href="css/style.css"/>
+  <style>
+    .case-hero { padding: var(--space-9) 0 0; background: linear-gradient(135deg, var(--midnight) 0%, #0f2d52 100%); }
+    .case-hero h1 { color: #fff; max-width: 780px; margin-bottom: var(--space-4); }
+    .case-hero .hero-lead { color: #94a3b8; font-size: clamp(16px,1.3vw,18px); line-height:1.65; max-width:640px; margin:0; }
+    .metric-strip { background: rgba(255,255,255,0.04); border-top:1px solid rgba(255,255,255,0.07); margin-top:var(--space-7); padding:var(--space-5) 0; }
+    .metric-strip-inner { max-width:var(--container); margin:0 auto; padding:0 var(--space-6); display:flex; gap:var(--space-8); flex-wrap:wrap; align-items:center; }
+    .m-stat { display:flex; flex-direction:column; gap:3px; }
+    .m-stat strong { font-family:var(--font-display); font-size:28px; font-weight:800; color:#fff; line-height:1; letter-spacing:-0.02em; }
+    .m-stat strong.green { color:#4ade80; }
+    .m-stat span { font-size:11px; font-weight:700; color:#4e6080; letter-spacing:0.07em; text-transform:uppercase; }
+    .m-divider { width:1px; height:36px; background:rgba(255,255,255,0.08); flex-shrink:0; }
+    .case-body { padding:var(--space-9) 0; }
+    .case-layout { display:grid; grid-template-columns:1fr 300px; gap:var(--space-8); align-items:start; }
+    .case-section { margin-bottom:var(--space-7); }
+    .case-section:last-child { margin-bottom:0; }
+    .case-section h2 { font-size:clamp(20px,1.8vw,26px); margin-bottom:var(--space-4); color:var(--text); }
+    .case-section p { font-size:16px; line-height:1.75; color:#374151; margin-bottom:var(--space-4); }
+    .case-section p:last-child { margin-bottom:0; }
+    .case-section ul { padding:0; margin:0; list-style:none; display:flex; flex-direction:column; gap:10px; }
+    .case-section ul li { display:flex; align-items:flex-start; gap:10px; font-size:15px; color:#374151; line-height:1.55; }
+    .case-section ul li i { color:var(--summit-blue); font-size:17px; flex-shrink:0; margin-top:1px; }
+    .spotlight { background:#f0f7ff; border-left:3px solid var(--summit-blue); border-radius:0 var(--radius-sm) var(--radius-sm) 0; padding:var(--space-5); margin:var(--space-5) 0; }
+    .spotlight p { margin:0; font-size:15px; line-height:1.7; color:#1e3a5f; }
+    .case-sidebar { position:sticky; top:100px; display:flex; flex-direction:column; gap:var(--space-4); }
+    .cs-sidebar-card { background:var(--navy); border:1px solid rgba(255,255,255,0.07); border-radius:var(--radius); padding:var(--space-5); }
+    .cs-sidebar-card h4 { color:#e2e8f0; font-size:13px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:var(--space-4); }
+    .cs-sidebar-stat { display:flex; flex-direction:column; gap:3px; padding:var(--space-3) 0; border-bottom:1px solid rgba(255,255,255,0.06); }
+    .cs-sidebar-stat:last-child { border-bottom:none; padding-bottom:0; }
+    .cs-sidebar-stat strong { font-family:var(--font-display); font-size:22px; font-weight:800; color:#fff; line-height:1; }
+    .cs-sidebar-stat strong.green { color:#4ade80; }
+    .cs-sidebar-stat span { font-size:12px; color:#64748b; }
+    .cs-sidebar-cta { background:var(--summit-blue); border-radius:var(--radius); padding:var(--space-5); text-align:center; }
+    .cs-sidebar-cta p { color:rgba(255,255,255,0.8); font-size:14px; margin-bottom:var(--space-4); }
+    .cs-sidebar-cta .btn { background:#fff; color:var(--navy); width:100%; justify-content:center; font-size:14px; }
+    .section-label { font-size:11px; font-weight:700; color:var(--summit-blue); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:var(--space-3); display:block; }
+    @media(max-width:1024px){ .case-layout{grid-template-columns:1fr;} .case-sidebar{position:static;} }
+  </style>
 </head>
 <body>
-<header>
-  <div class='header-inner'>
-    <a href='index.html'><img src='assets/logo/Summit_Primary_1500.png' class='logo' alt='Summit Migrations logo'></a>
-    <nav>
-      <a href='index.html'>Home</a>
-      <a href='services.html'>Services</a>
-      <a href='why-summit.html'>Why Summit</a>
-      <a href='case-studies.html'>Case Studies</a>
-      <a href='book.html'>Schedule</a>
-      <a href='contact.html'>Contact</a>
-    </nav>
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="site-logo" aria-label="Summit Migrations home">
+        <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true">
+          <polygon points="17,0 34,34 0,34" fill="#0f172a"/>
+          <polygon points="17,0 26,34 8,34" fill="#0078d4"/>
+          <polygon points="17,0 34,34 26,34" fill="#0a1e3d" opacity="0.8"/>
+          <polygon points="17,0 21,9 13,9" fill="#ffffff" opacity="0.12"/>
+        </svg>
+        <div class="site-logo-text">
+          <span class="site-logo-name">Summit Migrations</span>
+          <span class="site-logo-rule"></span>
+        </div>
+      </a>
+      <div class="header-right">
+        <nav id="mainNav">
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="why-summit.html">Why Summit</a>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="contact.html">Contact</a>
+          <a href="book.html" class="nav-cta">Book a Consultation</a>
+        </nav>
+        <div class="ms-partner-badge" title="Microsoft Partner ID 7109767">
+          <svg width="20" height="20" viewBox="0 0 23 23" fill="none">
+            <rect x="1" y="1" width="10" height="10" fill="#f25022"/>
+            <rect x="12" y="1" width="10" height="10" fill="#7fba00"/>
+            <rect x="1" y="12" width="10" height="10" fill="#00a4ef"/>
+            <rect x="12" y="12" width="10" height="10" fill="#ffb900"/>
+          </svg>
+          <span>Microsoft Partner</span>
+        </div>
+      </div>
       <button class="nav-toggle" id="navToggle" aria-label="Open navigation menu">
         <span></span><span></span><span></span>
       </button>
-  </div>
-</header>
+    </div>
+  </header>
 
-<main>
-  <section class='case-hero'>
-    <div class='container'>
-      <div class='breadcrumb'><a href='index.html'>Home</a> / <a href='case-studies.html'>Case Studies</a> / Energy Sector</div>
-      <h1>Exelon – Large-Scale OneDrive Migration</h1>
-      <p class='section-lead'>A 45,000-user, 120TB file migration executed inside Exelon's nuclear-regulated Fortune 100 environment, completed with zero data loss and no disruption to operations.</p>
-      <div class='metric-bar'>
-        <div class='metric-tile'><strong>45,000</strong><span>Users Migrated</span></div>
-        <div class='metric-tile'><strong>120 TB</strong><span>Data Transferred</span></div>
-        <div class='metric-tile'><strong>9 Months</strong><span>Engagement</span></div>
-        <div class='metric-tile'><strong>0</strong><span>Data Loss</span></div>
+  <main>
+    <section class="case-hero">
+      <div class="container">
+        <div class="breadcrumb" style="color:#94a3b8; margin-bottom:var(--space-4);">
+          <a href="index.html" style="color:#94a3b8;">Home</a> /
+          <a href="case-studies.html" style="color:#94a3b8;">Case Studies</a> / Exelon
+        </div>
+        <div style="display:flex; gap:8px; margin-bottom:var(--space-4); flex-wrap:wrap;">
+          <span class="case-tag-pill">Energy</span>
+          <span class="case-tag-pill">Fortune 100</span>
+          <span class="case-tag-pill">Regulated</span>
+        </div>
+        <h1>Exelon — Large-Scale OneDrive Migration in a Nuclear-Regulated Environment</h1>
+        <p class="hero-lead">45,000 users and 120TB migrated inside Exelon's nuclear-regulated Fortune 100 environment — with MNPI compliance, after-hours execution, and zero data loss across nine months.</p>
       </div>
-    </div>
-  </section>
-
-  <section class='section-block'>
-    <div class='container'>
-      <h2>Overview</h2>
-      <p>Summit executed one of the largest and most compliance-sensitive OneDrive migrations on record, retiring decades-old home directories across Exelon's nuclear-regulated Fortune 100 environment without disrupting operations.</p>
-    </div>
-  </section>
-
-  <section class='section-block'>
-    <div class='container'>
-      <h2>Challenges</h2>
-      <ul>
-        <li>Strict MNPI compliance in a regulated utility environment</li>
-        <li>Decades of legacy permissions requiring cleanup</li>
-        <li>Multi-domain identity complexity</li>
-        <li>Risk of network throttling requiring after-hours execution</li>
-        <li>Edge-case file types needing specialized handling</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class='section-block'>
-    <div class='container'>
-      <h2>Spotlight: Dual-Platform Architecture</h2>
-      <div class='spotlight'>
-        <p>Summit deployed SkySync and Microsoft Migration Manager in parallel, enabling greater throughput, redundancy, and advanced handling of file types that no single platform could manage alone. All migrations ran after hours with progressive bandwidth tuning to protect business operations.</p>
+      <div class="metric-strip">
+        <div class="metric-strip-inner">
+          <div class="m-stat"><strong>45,000</strong><span>Users Migrated</span></div>
+          <div class="m-divider"></div>
+          <div class="m-stat"><strong>120 TB</strong><span>Data Transferred</span></div>
+          <div class="m-divider"></div>
+          <div class="m-stat"><strong>9 Mo</strong><span>Duration</span></div>
+          <div class="m-divider"></div>
+          <div class="m-stat"><strong class="green">0</strong><span>Incidents</span></div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class='section-block'>
-    <div class='container'>
-      <h2>Our Approach</h2>
-      <ul>
-        <li>Dual-platform migration architecture using SkySync and Migration Manager</li>
-        <li>Nightly after-hours waves with strict bandwidth controls</li>
-        <li>Scripted OneDrive provisioning and temporary admin access management</li>
-        <li>Morning validation and immediate remediation before business hours</li>
-      </ul>
-    </div>
-  </section>
+    <section class="case-body">
+      <div class="container">
+        <div class="case-layout">
+          <div class="case-main">
 
-  <section class='section-block'>
-    <div class='container'>
-      <h2>Results</h2>
-      <ul>
-        <li>45,000 users migrated with zero data loss</li>
-        <li>120 TB transferred across nine months</li>
-        <li>No business disruption across nuclear-regulated operations</li>
-        <li>Legacy NetApp infrastructure fully retired</li>
-      </ul>
-    </div>
-  </section>
+            <div class="case-section">
+              <span class="section-label">Overview</span>
+              <h2>One of the largest compliance-sensitive OneDrive migrations on record.</h2>
+              <p>Exelon Corporation, one of America's largest energy utilities, required retirement of all legacy home directories and migration to OneDrive for Business. Tens of thousands of users stored data on aging NetApp systems with decades of permissions sprawl.</p>
+              <p>The effort demanded MNPI compliance, after-hours execution, dual-platform tooling, and zero tolerance for business impact across nuclear-regulated operations.</p>
+            </div>
 
-  <section class='section-block'>
-    <div class='container'>
-      <div class='cta-row-inline'>
-        <a href='case-energy-full.html' class='btn btn-secondary'>Read the full case study →</a>
-        <a href='book.html' class='btn btn-primary'>Book a Consultation</a>
+            <div class="case-section">
+              <span class="section-label">Challenges</span>
+              <h2>A regulated environment with no margin for disruption.</h2>
+              <ul>
+                <li><i class="ph ph-warning-circle-fill"></i>MNPI compliance requirements across all migration activities</li>
+                <li><i class="ph ph-warning-circle-fill"></i>Decades of legacy permissions requiring cleanup before migration</li>
+                <li><i class="ph ph-warning-circle-fill"></i>Multi-domain Active Directory complexity across the enterprise</li>
+                <li><i class="ph ph-warning-circle-fill"></i>Network throttling risk requiring strict bandwidth controls and after-hours execution</li>
+                <li><i class="ph ph-warning-circle-fill"></i>Edge-case file types requiring specialized handling — Access databases, OneNote, PSTs</li>
+              </ul>
+            </div>
+
+            <div class="case-section">
+              <span class="section-label">Spotlight</span>
+              <h2>Dual-platform architecture for maximum throughput.</h2>
+              <div class="spotlight">
+                <p>Summit deployed SkySync and Microsoft Migration Manager in parallel — enabling greater throughput, redundancy, and advanced handling of file types that no single platform could manage alone. All migrations ran after hours with progressive bandwidth tuning to protect business operations across nuclear-regulated facilities.</p>
+              </div>
+            </div>
+
+            <div class="case-section">
+              <span class="section-label">Our Approach</span>
+              <h2>Nightly waves. Morning validation. Zero surprises.</h2>
+              <ul>
+                <li><i class="ph ph-check-circle-fill"></i>Dual-platform migration architecture using SkySync and Migration Manager in parallel</li>
+                <li><i class="ph ph-check-circle-fill"></i>Scripted OneDrive provisioning and temporary admin access management via PowerShell</li>
+                <li><i class="ph ph-check-circle-fill"></i>Nightly after-hours migration waves with strict bandwidth controls</li>
+                <li><i class="ph ph-check-circle-fill"></i>Morning validation and immediate remediation before business hours began</li>
+                <li><i class="ph ph-check-circle-fill"></i>Admin access revocation after each wave and legacy directory retirement upon completion</li>
+              </ul>
+            </div>
+
+            <div class="case-section">
+              <span class="section-label">Results</span>
+              <h2>45,000 users. 120TB. Zero incidents.</h2>
+              <ul>
+                <li><i class="ph ph-check-circle-fill"></i>45,000 users migrated with zero data loss and zero business disruption</li>
+                <li><i class="ph ph-check-circle-fill"></i>120TB transferred across nine months of nightly operations</li>
+                <li><i class="ph ph-check-circle-fill"></i>Legacy NetApp infrastructure fully retired</li>
+                <li><i class="ph ph-check-circle-fill"></i>All MNPI compliance requirements satisfied</li>
+                <li><i class="ph ph-check-circle-fill"></i>No incidents reported across nuclear-regulated operations</li>
+              </ul>
+            </div>
+
+            <div class="cta-row-inline">
+              <a href="case-energy-full.html" class="btn btn-secondary">Read the full case study →</a>
+              <a href="book.html" class="btn btn-primary">Book a Consultation</a>
+            </div>
+
+          </div>
+
+          <aside class="case-sidebar">
+            <div class="cs-sidebar-card">
+              <h4>By the numbers</h4>
+              <div class="cs-sidebar-stat"><strong>45,000</strong><span>Users migrated</span></div>
+              <div class="cs-sidebar-stat"><strong>120 TB</strong><span>Data transferred</span></div>
+              <div class="cs-sidebar-stat"><strong>9 Mo</strong><span>Engagement duration</span></div>
+              <div class="cs-sidebar-stat"><strong class="green">0</strong><span>Incidents</span></div>
+            </div>
+            <div class="cs-sidebar-card">
+              <h4>Tools &amp; Technologies</h4>
+              <div class="cs-sidebar-stat"><strong style="font-size:15px;">SkySync</strong><span>Primary migration tooling</span></div>
+              <div class="cs-sidebar-stat"><strong style="font-size:15px;">Migration Manager</strong><span>Parallel migration tooling</span></div>
+              <div class="cs-sidebar-stat"><strong style="font-size:15px;">PowerShell</strong><span>Provisioning &amp; automation</span></div>
+              <div class="cs-sidebar-stat"><strong style="font-size:15px;">Information Barriers</strong><span>MNPI compliance</span></div>
+            </div>
+            <div class="cs-sidebar-cta">
+              <p>Facing an enterprise-scale migration?</p>
+              <a href="book.html" class="btn"><i class="ph ph-calendar-check"></i> Book a Consultation</a>
+            </div>
+          </aside>
+
+        </div>
       </div>
+    </section>
+
+    <section class="section" style="padding-top:0;">
+      <div class="container">
+        <div class="cta-banner">
+          <div>
+            <h2>Facing an enterprise-scale migration?</h2>
+            <p>Summit delivers predictable, compliant transformations at any scale.</p>
+          </div>
+          <a href="book.html" class="btn">Book a Consultation →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <a href="index.html" class="site-logo site-logo-footer" aria-label="Summit Migrations home">
+        <svg width="28" height="28" viewBox="0 0 34 34" fill="none" aria-hidden="true">
+          <polygon points="17,0 34,34 0,34" fill="#1e3a5f"/>
+          <polygon points="17,0 26,34 8,34" fill="#0078d4"/>
+          <polygon points="17,0 34,34 26,34" fill="#0a1e3d" opacity="0.8"/>
+          <polygon points="17,0 21,9 13,9" fill="#ffffff" opacity="0.12"/>
+        </svg>
+        <div class="site-logo-text">
+          <span class="site-logo-name" style="color:#fff;">Summit Migrations</span>
+          <span class="site-logo-rule"></span>
+        </div>
+      </a>
+      <p class="footer-copy">© 2026 Summit Migrations Corp. &nbsp;·&nbsp; Microsoft Partner ID 7109767</p>
     </div>
-  </section>
-</main>
-
-<footer>
-  <div class='footer-inner'>
-    <img src='assets/logo/Summit_White_Transparent_1500.png' class='footer-logo' alt='Summit Migrations white logo'/>
-    <div>© 2026 Summit Migrations Corp.</div>
-  </div>
-</footer>
-
+  </footer>
   <script>
-    var toggle = document.getElementById("navToggle");
-    var nav = document.querySelector("header nav");
-    toggle.addEventListener("click", function() {
-      var open = nav.classList.toggle("mobile-open");
-      toggle.classList.toggle("open", open);
-      toggle.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
+    var toggle = document.getElementById('navToggle');
+    var nav = document.getElementById('mainNav');
+    toggle.addEventListener('click', function() {
+      var open = nav.classList.toggle('mobile-open');
+      toggle.classList.toggle('open', open);
+      toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
     });
   </script>
 </body>

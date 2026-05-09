@@ -3,109 +3,264 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Schedule a Consultation – Summit Migrations</title>
-  <link rel="stylesheet" href="css/style.css"/>
-  <style>
-    .schedule-hero {
-      padding: 64px 0;
-      background: linear-gradient(135deg, #0f172a, #1e4a7a);
-      color: #fff;
-    }
-    .schedule-hero .breadcrumb {
-      font-size: 14px;
-      color: #94a3b8;
-      margin-bottom: 12px;
-    }
-    .schedule-hero .breadcrumb a {
-      color: #94a3b8;
-      text-decoration: none;
-    }
-    .schedule-hero .breadcrumb a:hover { color: #fff; }
-    .schedule-hero h1 { color: #fff; margin-bottom: 12px; }
-    .schedule-hero .lead { color: #cbd5e1; max-width: 680px; margin-bottom: 28px; font-size: 18px; line-height: 1.65; }
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png"/>
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png"/>
+  <meta name="theme-color" content="#0b1120"/>
+  <title>Book a Consultation – Summit Migrations</title>
+  <link rel="canonical" href="https://www.summitmigrations.com/book.html"/>
+  <meta name="description" content="Schedule a 30-minute consultation with Summit Migrations. No sales pitch — just a direct conversation about your migration environment and timeline."/>
 
-    .trust-row {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-bottom: 32px;
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js" defer></script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css"/>
+
+  <style>
+    .book-hero {
+      padding: var(--space-9) 0 var(--space-8);
+      background: linear-gradient(135deg, var(--midnight) 0%, #0f2d52 100%);
     }
+
+    .book-hero h1 {
+      color: #fff;
+      max-width: 680px;
+      margin-bottom: var(--space-4);
+    }
+
+    .book-hero .hero-lead {
+      color: #94a3b8;
+      font-size: clamp(16px, 1.3vw, 18px);
+      line-height: 1.65;
+      max-width: 560px;
+      margin-bottom: var(--space-6);
+    }
+
+    /* Trust pills */
+    .trust-pills {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: var(--space-6);
+    }
+
     .trust-pill {
       display: flex;
       align-items: center;
       gap: 8px;
-      background: rgba(255,255,255,0.10);
-      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
       border-radius: 999px;
       padding: 8px 16px;
-      font-size: 14px;
-      color: #e2e8f0;
+      font-size: 13px;
       font-weight: 600;
-    }
-    .trust-pill svg {
-      flex-shrink: 0;
-      opacity: 0.85;
+      color: #cbd5e1;
     }
 
-    .expect-section {
-      padding: 56px 0;
+    .trust-pill i {
+      color: #4ade80;
+      font-size: 15px;
+    }
+
+    /* Open scheduling button in hero */
+    .btn-book-hero {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 32px;
+      background: var(--summit-blue);
+      color: #fff;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 4px 24px rgba(0,120,212,0.4);
+      transition: background 0.15s, transform 0.15s, box-shadow 0.15s;
+      letter-spacing: -0.01em;
+    }
+
+    .btn-book-hero:hover {
+      background: var(--summit-blue-dk);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(0,120,212,0.5);
+    }
+
+    /* What happens section */
+    .what-happens {
+      padding: var(--space-9) 0;
+      background: #fff;
       border-top: 1px solid var(--glacier);
     }
-    .expect-grid {
+
+    .steps-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 28px;
+      gap: var(--space-5);
+      margin-top: var(--space-7);
     }
-    .expect-card {
-      background: #fff;
+
+    .step-card {
+      background: var(--soft);
       border: 1px solid var(--glacier);
       border-radius: var(--radius);
-      padding: var(--space-5);
-      box-shadow: 0 2px 10px rgba(0,0,0,.03);
+      padding: var(--space-6);
     }
-    .expect-number {
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--summit-blue);
-      letter-spacing: 0.05em;
-      margin-bottom: 8px;
-    }
-    .expect-card h3 { margin-bottom: 6px; }
-    .expect-card p { margin: 0; }
 
-    .founder-strip {
-      background: #f7fafc;
-      border-top: 1px solid var(--glacier);
-      border-bottom: 1px solid var(--glacier);
-      padding: 40px 0;
+    .step-number {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--summit-blue);
+      letter-spacing: 0.1em;
+      margin-bottom: var(--space-3);
     }
+
+    .step-card h3 {
+      margin-bottom: var(--space-3);
+      font-size: 18px;
+    }
+
+    .step-card p {
+      font-size: 15px;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* Founder strip */
+    .founder-strip {
+      background: var(--navy);
+      padding: var(--space-7) 0;
+    }
+
     .founder-inner {
       display: flex;
       align-items: center;
-      gap: 32px;
+      gap: var(--space-6);
       flex-wrap: wrap;
     }
-    .founder-text h3 { margin-bottom: 6px; }
-    .founder-text p { margin: 0; max-width: 640px; }
 
-    @media(max-width: 768px) {
-      .expect-grid { grid-template-columns: 1fr; }
+    .founder-icon {
+      width: 64px;
+      height: 64px;
+      background: rgba(0,120,212,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #7ec8f7;
+      font-size: 28px;
+      flex-shrink: 0;
+    }
+
+    .founder-text h3 {
+      color: #e2e8f0;
+      margin-bottom: var(--space-2);
+      font-size: 18px;
+    }
+
+    .founder-text p {
+      color: #64748b;
+      font-size: 15px;
+      line-height: 1.65;
+      margin: 0;
+      max-width: 680px;
+    }
+
+    /* Calendly embed section */
+    .calendly-section {
+      padding: var(--space-8) 0;
+      background: #f8fafc;
+      border-top: 1px solid var(--glacier);
+    }
+
+    .calendly-section h2 {
+      text-align: center;
+      margin-bottom: var(--space-6);
+      color: var(--text);
+    }
+
+    .calendly-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid var(--glacier);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .calendly-inline-widget {
+      width: 100%;
+      height: 700px;
+      border: none;
+      display: block;
+    }
+
+    /* Prefer to write first */
+    .write-first {
+      padding: var(--space-7) 0;
+      background: #fff;
+      border-top: 1px solid var(--glacier);
+    }
+
+    @media (max-width: 768px) {
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .founder-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .calendly-inline-widget {
+        height: 640px;
+      }
     }
   </style>
 </head>
 <body>
+
+  <!-- ================================================
+       HEADER
+       ================================================ -->
   <header>
     <div class="header-inner">
-      <a href="index.html"><img src="assets/logo/Summit_Primary_1500.png" class="logo" alt="Summit Migrations logo"></a>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="why-summit.html">Why Summit</a>
-        <a href="case-studies.html">Case Studies</a>
-        <a href="book.html">Schedule</a>
-        <a href="contact.html">Contact</a>
-      </nav>
+      <a href="index.html" class="site-logo" aria-label="Summit Migrations home">
+        <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true">
+          <polygon points="17,0 34,34 0,34" fill="#0f172a"/>
+          <polygon points="17,0 26,34 8,34"  fill="#0078d4"/>
+          <polygon points="17,0 34,34 26,34" fill="#0a1e3d" opacity="0.8"/>
+          <polygon points="17,0 21,9 13,9"   fill="#ffffff" opacity="0.12"/>
+        </svg>
+        <div class="site-logo-text">
+          <span class="site-logo-name">Summit Migrations</span>
+          <span class="site-logo-rule"></span>
+        </div>
+      </a>
+
+      <div class="header-right">
+        <nav id="mainNav">
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="why-summit.html">Why Summit</a>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="contact.html">Contact</a>
+          <a href="book.html" class="nav-cta">Book a Consultation</a>
+        </nav>
+        <div class="ms-partner-badge" title="Microsoft Partner ID 7109767">
+          <svg width="20" height="20" viewBox="0 0 23 23" fill="none">
+            <rect x="1" y="1" width="10" height="10" fill="#f25022"/>
+            <rect x="12" y="1" width="10" height="10" fill="#7fba00"/>
+            <rect x="1" y="12" width="10" height="10" fill="#00a4ef"/>
+            <rect x="12" y="12" width="10" height="10" fill="#ffb900"/>
+          </svg>
+          <span>Microsoft Partner</span>
+        </div>
+      </div>
+
       <button class="nav-toggle" id="navToggle" aria-label="Open navigation menu">
         <span></span><span></span><span></span>
       </button>
@@ -113,101 +268,157 @@
   </header>
 
   <main>
-    <!-- Hero -->
-    <section class="schedule-hero">
-      <div class="container">
-        <div class="breadcrumb"><a href="index.html">Home</a> / Schedule</div>
-        <h1>Schedule a 30-Minute Consultation</h1>
-        <p class="lead">No sales pitch. Just a direct conversation about your environment, your timeline, and what a successful migration looks like for your organization.</p>
 
-        <div class="trust-row">
+    <!-- ================================================
+         HERO
+         ================================================ -->
+    <section class="book-hero">
+      <div class="container">
+        <div class="breadcrumb" style="color:#94a3b8; margin-bottom:var(--space-4);">
+          <a href="index.html" style="color:#94a3b8;">Home</a> / Schedule
+        </div>
+        <h1>Schedule a 30-Minute Consultation</h1>
+        <p class="hero-lead">No sales pitch. No obligation. Just a direct conversation about your environment, your timeline, and what a successful migration looks like for your organization.</p>
+
+        <div class="trust-pills">
           <div class="trust-pill">
-            <svg width="16" height="16" fill="none" stroke="#60a5fa" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
-            Founder-led — you speak directly with Jim
+            <i class="ph ph-check-circle-fill"></i>
+            FastTrack-level expertise on the call
           </div>
           <div class="trust-pill">
-            <svg width="16" height="16" fill="none" stroke="#60a5fa" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+            <i class="ph ph-check-circle-fill"></i>
             No obligation, no pressure
           </div>
           <div class="trust-pill">
-            <svg width="16" height="16" fill="none" stroke="#60a5fa" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
-            FastTrack-level expertise on the call
+            <i class="ph ph-check-circle-fill"></i>
+            You'll leave with clarity
           </div>
         </div>
 
         <a href="https://calendly.com/summitmigrations/30min?hide_event_type_details=1&hide_gdpr_banner=1"
            target="_blank" rel="noopener"
-           class="btn btn-primary" style="font-size:16px; padding:14px 24px;">
+           class="btn-book-hero">
+          <i class="ph ph-calendar-check"></i>
           Open Scheduling →
         </a>
+
       </div>
     </section>
 
-    <!-- What to expect -->
-    <section class="expect-section">
+    <!-- ================================================
+         WHAT HAPPENS IN 30 MINUTES
+         ================================================ -->
+    <section class="what-happens">
       <div class="container">
-        <h2>What happens in 30 minutes</h2>
-        <div class="expect-grid">
-          <div class="expect-card">
-            <div class="expect-number">01</div>
+        <div class="section-header">
+          <span class="badge">What to Expect</span>
+          <h2>What happens in 30 minutes.</h2>
+        </div>
+
+        <div class="steps-grid">
+
+          <div class="step-card">
+            <div class="step-number">01</div>
             <h3>We listen first</h3>
-            <p>You walk us through your environment — source systems, data volumes, timeline pressures, and anything that keeps you up at night about this migration.</p>
+            <p>You walk us through your environment — source systems, data volumes, timeline pressures, compliance requirements, and anything that concerns you about this migration.</p>
           </div>
-          <div class="expect-card">
-            <div class="expect-number">02</div>
+
+          <div class="step-card">
+            <div class="step-number">02</div>
             <h3>We give you a real read</h3>
-            <p>Based on what we hear, we share honest observations about risk, feasibility, and approach — drawing on experience with migrations at your scale and complexity.</p>
+            <p>Based on what we hear, we share honest observations about risk, feasibility, and approach — drawing on experience with migrations at your scale and complexity level.</p>
           </div>
-          <div class="expect-card">
-            <div class="expect-number">03</div>
+
+          <div class="step-card">
+            <div class="step-number">03</div>
             <h3>You leave with clarity</h3>
-            <p>Whether we work together or not, you leave the call with a clearer picture of what your migration actually requires and what questions to ask any vendor.</p>
+            <p>Whether we work together or not, you leave with a clearer picture of what your migration actually requires — and the right questions to ask any vendor.</p>
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- Founder strip -->
+    <!-- ================================================
+         FOUNDER STRIP
+         ================================================ -->
     <section class="founder-strip">
       <div class="container">
         <div class="founder-inner">
+          <div class="founder-icon">
+            <i class="ph ph-user-circle"></i>
+          </div>
           <div class="founder-text">
-            <h3>You're talking to the person doing the work</h3>
-            <p>Summit is founder-led by design. When you schedule a consultation, you speak directly with Jim Galfano — a former Microsoft FastTrack specialist with a decade of enterprise migration experience across energy, healthcare, financial services, and manufacturing. There are no account managers, no hand-offs, and no junior staff on the call.</p>
+            <h3>You're talking to the person doing the work.</h3>
+            <p>Summit is founder-led by design. When you book a consultation, you speak directly with a former Microsoft FastTrack specialist with a decade of enterprise migration experience across energy, healthcare, financial services, and manufacturing. No account managers, no hand-offs, no junior staff on the call — just the experience that closed the Knauf, Exelon, and Edelman engagements.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Prefer to write first -->
-    <section class="section">
+    <!-- ================================================
+         CALENDLY EMBED
+         ================================================ -->
+    <section class="calendly-section">
+      <div class="container">
+        <h2>Pick a time that works for you.</h2>
+        <div class="calendly-wrap">
+          <iframe
+            class="calendly-inline-widget"
+            src="https://calendly.com/summitmigrations/30min?hide_event_type_details=1&hide_gdpr_banner=1"
+            title="Schedule a consultation with Summit Migrations">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================
+         PREFER TO WRITE FIRST
+         ================================================ -->
+    <section class="write-first">
       <div class="container">
         <div class="cta-banner">
           <div>
-            <h2 style="margin:0 0 6px">Prefer to reach out in writing first?</h2>
-            <p style="margin:0;color:#e5e7eb">Send us a message and we'll respond within one business day.</p>
+            <h2>Prefer to reach out in writing first?</h2>
+            <p>Send us a message and we'll respond within one business day.</p>
           </div>
-          <div><a href="contact.html">Send a Message</a></div>
+          <a href="contact.html" class="btn">Send a Message →</a>
         </div>
       </div>
     </section>
+
   </main>
 
+  <!-- ================================================
+       FOOTER
+       ================================================ -->
   <footer>
     <div class="footer-inner">
-      <img src="assets/logo/Summit_White_Transparent_1500.png" class="footer-logo" alt="Summit Migrations white logo"/>
-      <div>© 2026 Summit Migrations Corp.</div>
+      <a href="index.html" class="site-logo site-logo-footer" aria-label="Summit Migrations home">
+        <svg width="28" height="28" viewBox="0 0 34 34" fill="none" aria-hidden="true">
+          <polygon points="17,0 34,34 0,34" fill="#1e3a5f"/>
+          <polygon points="17,0 26,34 8,34"  fill="#0078d4"/>
+          <polygon points="17,0 34,34 26,34" fill="#0a1e3d" opacity="0.8"/>
+          <polygon points="17,0 21,9 13,9"   fill="#ffffff" opacity="0.12"/>
+        </svg>
+        <div class="site-logo-text">
+          <span class="site-logo-name" style="color:#fff;">Summit Migrations</span>
+          <span class="site-logo-rule"></span>
+        </div>
+      </a>
+      <p class="footer-copy">© 2026 Summit Migrations Corp. &nbsp;·&nbsp; Microsoft Partner ID 7109767</p>
     </div>
   </footer>
 
   <script>
-    var toggle = document.getElementById("navToggle");
-    var nav = document.querySelector("header nav");
-    toggle.addEventListener("click", function() {
-      var open = nav.classList.toggle("mobile-open");
-      toggle.classList.toggle("open", open);
-      toggle.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
+    var toggle = document.getElementById('navToggle');
+    var nav    = document.getElementById('mainNav');
+    toggle.addEventListener('click', function () {
+      var open = nav.classList.toggle('mobile-open');
+      toggle.classList.toggle('open', open);
+      toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
     });
   </script>
+
 </body>
 </html>
